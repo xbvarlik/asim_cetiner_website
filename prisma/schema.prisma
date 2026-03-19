@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Status {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
+  leads Lead[]
+}
+
+model Office {
+  id       Int     @id @default(autoincrement())
+  name     String  @unique
+  address  String
+  mapsLink String?
+
+  leads Lead[]
+}
+
+model Lead {
+  id          String    @id @default(uuid())
+  name        String
+  phoneNumber String
+  email       String
+  message     String?
+  deletedAt   DateTime?
+
+  officeId Int
+  office   Office @relation(fields: [officeId], references: [id], onDelete: Restrict)
+
+  statusId Int
+  status   Status @relation(fields: [statusId], references: [id], onDelete: Restrict)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model BlogPost {
+  id       Int     @id @default(autoincrement())
+  title    String
+  content  String
+  isActive Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
