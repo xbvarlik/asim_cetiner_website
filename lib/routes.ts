@@ -20,3 +20,8 @@ export const ROUTES = {
     settings: "/admin/settings",
   },
 } as const;
+
+/** Public detail URL for a blog post; keep path construction centralized (constitution). */
+export function getBlogPostPath(id: number): string {
+  return `${ROUTES.blog}/${id}`;
+}

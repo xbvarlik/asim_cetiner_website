@@ -10,6 +10,12 @@ export type OfficeType = Office;
 export type LeadType = Lead;
 export type BlogPostType = BlogPost;
 
+/** Serializable fields passed from Server Components to public blog feature UI. */
+export type PublicBlogPost = Pick<
+  BlogPostType,
+  "id" | "title" | "content" | "createdAt"
+>;
+
 export type PaginationParams = {
   page: number;
   pageSize: number;

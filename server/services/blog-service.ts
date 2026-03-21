@@ -9,6 +9,37 @@ import type {
 } from "@/types";
 import { createBlogPostSchema, updateBlogPostSchema } from "@/lib/validations/blog-validation";
 
+/** Bounded page size for the public blog index (no pagination in v1). */
+const PUBLIC_BLOG_LIST_TAKE = 100;
+
+export async function listPublishedForPublic(): Promise<
+  ServiceResult<BlogPostType[]>
+> {
+  try {
+    const posts = await prisma.blogPost.findMany({
+      where: { isActive: true },
+      orderBy: { createdAt: "desc" },
+      take: PUBLIC_BLOG_LIST_TAKE,
+    });
+    return { success: true, data: posts };
+  } catch {
+    return { success: false, error: "An unexpected error occurred" };
+  }
+}
+
+export async function getPublishedById(
+  id: number
+): Promise<ServiceResult<BlogPostType | null>> {
+  try {
+    const blogPost = await prisma.blogPost.findFirst({
+      where: { id, isActive: true },
+    });
+    return { success: true, data: blogPost };
+  } catch {
+    return { success: false, error: "An unexpected error occurred" };
+  }
+}
+
 export async function getAll(
   params: PaginationParams
 ): Promise<ServiceResult<PaginatedResult<BlogPostType>>> {

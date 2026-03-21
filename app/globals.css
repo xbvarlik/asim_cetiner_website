@@ -94,3 +94,14 @@
     @apply font-sans;
   }
 }
+
+/* Public blog article bodies (admin-authored HTML) — responsive embedded media */
+.blog-body img {
+  max-width: 100%;
+  height: auto;
+}
+
+.blog-body pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
