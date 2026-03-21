@@ -10,4 +10,13 @@ export const ROUTES = {
   seoBilisselDavranisciTerapi: "/bilissel-davranisci-terapi",
   seoUskudarPsikolog: "/uskudar-psikolog",
   seoBesiktasPsikolog: "/besiktas-psikolog",
+  admin: {
+    login: "/admin/login",
+    home: "/admin",
+    leads: "/admin/leads",
+    blog: "/admin/blog",
+    offices: "/admin/offices",
+    stats: "/admin/stats",
+    settings: "/admin/settings",
+  },
 } as const;
