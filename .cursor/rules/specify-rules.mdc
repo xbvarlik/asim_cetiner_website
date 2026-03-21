@@ -10,6 +10,7 @@ Auto-generated from all feature plans. Last updated: 2026-03-19
 ## Active Technologies
 - TypeScript 5.x (Node.js 18+ LTS) + Next.js LTS (App Router), React 19+, Prisma ORM, Zod, Tailwind CSS, Shadcn/UI (001-backend-data-layer)
 - PostgreSQL (Supabase) (001-backend-data-layer)
+- PostgreSQL (existing from 001-backend-data-layer) (002-home-page)
 
 - [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION] + [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION] (001-backend-data-layer)
 
@@ -30,6 +31,7 @@ cd src; pytest; ruff check .
 [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]: Follow standard conventions
 
 ## Recent Changes
+- 002-home-page: Added TypeScript 5.x
 - 001-backend-data-layer: Added TypeScript 5.x (Node.js 18+ LTS) + Next.js LTS (App Router), React 19+, Prisma ORM, Zod, Tailwind CSS, Shadcn/UI
 
 - 001-backend-data-layer: Added [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION] + [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]
