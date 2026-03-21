@@ -2,6 +2,7 @@ import { Prisma } from "@/lib/generated/prisma/client";
 import { prisma } from "@/lib/prisma";
 import type {
   LeadType,
+  LeadListParams,
   PaginatedResult,
   PaginationParams,
   ServiceResult,
@@ -31,6 +32,11 @@ const softDeleteClient = prisma.$extends({
   },
 });
 
+export type LeadAdminRow = LeadType & {
+  office: { id: number; name: string };
+  status: { id: number; name: string };
+};
+
 export async function getAll(
   params: PaginationParams
 ): Promise<ServiceResult<PaginatedResult<LeadType>>> {
@@ -39,6 +45,49 @@ export async function getAll(
     const [data, total] = await Promise.all([
       softDeleteClient.lead.findMany({ skip, take: params.pageSize }),
       softDeleteClient.lead.count(),
+    ]);
+
+    return {
+      success: true,
+      data: {
+        data,
+        pagination: {
+          page: params.page,
+          pageSize: params.pageSize,
+          total,
+          totalPages: Math.ceil(total / params.pageSize),
+        },
+      },
+    };
+  } catch {
+    return { success: false, error: "An unexpected error occurred" };
+  }
+}
+
+export async function listForAdmin(
+  params: LeadListParams
+): Promise<ServiceResult<PaginatedResult<LeadAdminRow>>> {
+  try {
+    const skip = (params.page - 1) * params.pageSize;
+    const where: Prisma.LeadWhereInput = {
+      ...(params.statusId !== undefined && { statusId: params.statusId }),
+      ...(params.officeId !== undefined && { officeId: params.officeId }),
+    };
+    const orderBy: Prisma.LeadOrderByWithRelationInput = {
+      [params.sortBy]: params.sortDir,
+    };
+    const [data, total] = await Promise.all([
+      softDeleteClient.lead.findMany({
+        where,
+        skip,
+        take: params.pageSize,
+        orderBy,
+        include: {
+          office: { select: { id: true, name: true } },
+          status: { select: { id: true, name: true } },
+        },
+      }),
+      softDeleteClient.lead.count({ where }),
     ]);
 
     return {

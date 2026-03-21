@@ -15,6 +15,28 @@ export type PaginationParams = {
   pageSize: number;
 };
 
+export type SortDirection = "asc" | "desc";
+
+export type LeadListParams = PaginationParams & {
+  sortBy: "createdAt" | "name" | "updatedAt";
+  sortDir: SortDirection;
+  statusId?: number;
+  officeId?: number;
+};
+
+export type BlogListParams = PaginationParams & {
+  sortBy: "createdAt" | "title" | "updatedAt";
+  sortDir: SortDirection;
+};
+
+export type OfficeListParams = PaginationParams & {
+  sortDir: SortDirection;
+};
+
+export type AdminActionResult =
+  | { success: true; message?: string }
+  | { success: false; error: string };
+
 export type PaginatedResult<T> = {
   data: T[];
   pagination: {

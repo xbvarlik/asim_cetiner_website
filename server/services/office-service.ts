@@ -2,6 +2,7 @@ import { Prisma } from "@/lib/generated/prisma/client";
 import { prisma } from "@/lib/prisma";
 import type {
   OfficeType,
+  OfficeListParams,
   PaginatedResult,
   PaginationParams,
   ServiceResult,
@@ -15,6 +16,40 @@ export async function getAll(
     const skip = (params.page - 1) * params.pageSize;
     const [data, total] = await Promise.all([
       prisma.office.findMany({ skip, take: params.pageSize }),
+      prisma.office.count(),
+    ]);
+
+    return {
+      success: true,
+      data: {
+        data,
+        pagination: {
+          page: params.page,
+          pageSize: params.pageSize,
+          total,
+          totalPages: Math.ceil(total / params.pageSize),
+        },
+      },
+    };
+  } catch {
+    return { success: false, error: "An unexpected error occurred" };
+  }
+}
+
+export async function listForAdmin(
+  params: OfficeListParams
+): Promise<ServiceResult<PaginatedResult<OfficeType>>> {
+  try {
+    const skip = (params.page - 1) * params.pageSize;
+    const orderBy: Prisma.OfficeOrderByWithRelationInput = {
+      name: params.sortDir,
+    };
+    const [data, total] = await Promise.all([
+      prisma.office.findMany({
+        skip,
+        take: params.pageSize,
+        orderBy,
+      }),
       prisma.office.count(),
     ]);
 
