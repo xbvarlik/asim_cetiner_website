@@ -1,18 +1,30 @@
 import Link from "next/link";
 import { ROUTES } from "@/lib/routes";
 
-export function Hero(): React.JSX.Element {
+export const DEFAULT_HERO_TITLE = "Profesyonel Psikolojik Danışmanlık";
+
+export const DEFAULT_HERO_SUBTITLE =
+  "Güvenli ve destekleyici bir ortamda, birlikte daha sağlıklı bir yaşam için adım atın. Uzman psikolog desteğiyle kendinizi keşfedin.";
+
+type HeroProps = {
+  title?: string;
+  subtitle?: string;
+};
+
+export function Hero({
+  title = DEFAULT_HERO_TITLE,
+  subtitle = DEFAULT_HERO_SUBTITLE,
+}: HeroProps): React.JSX.Element {
   return (
     <section className="relative flex min-h-[85vh] items-center justify-center bg-primary">
       <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/90 to-primary/70" />
 
       <div className="relative z-10 mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
         <h1 className="text-4xl font-bold leading-tight tracking-tight text-primary-foreground sm:text-5xl lg:text-6xl">
-          Profesyonel Psikolojik Danışmanlık
+          {title}
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-primary-foreground/85 sm:text-xl">
-          Güvenli ve destekleyici bir ortamda, birlikte daha sağlıklı bir yaşam
-          için adım atın. Uzman psikolog desteğiyle kendinizi keşfedin.
+          {subtitle}
         </p>
 
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">

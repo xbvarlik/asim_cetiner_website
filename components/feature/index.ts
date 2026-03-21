@@ -1,8 +1,11 @@
 export { Header } from "./header";
-export { Hero } from "./hero";
+export { Hero, DEFAULT_HERO_TITLE, DEFAULT_HERO_SUBTITLE } from "./hero";
 export { About } from "./about";
 export { AreasOfWork } from "./areas-of-work";
 export { ServicesList } from "./services-list";
 export { ContactForm } from "./contact-form";
 export { MapView } from "./map-view";
 export { Footer } from "./footer";
+export { SiteShell } from "./site-shell";
+export { HomeTemplate } from "./home-template";
+export type { HomeTemplateProps } from "./home-template";

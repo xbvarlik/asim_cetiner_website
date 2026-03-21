@@ -13,9 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kenan Kübuç - Psikolog",
+  title: {
+    default: "Kenan Kübuç | Psikolog",
+    template: "%s | Kenan Kübuç",
+  },
   description:
-    "Profesyonel psikolojik danışmanlık ve terapi hizmetleri. Anksiyete, depresyon, travma ve daha fazlası için uzman destek.",
+    "Profesyonel psikolojik danışmanlık ve terapi. Anksiyete, depresyon, travma ve ilişki sorunları için uzman psikolog desteği — İstanbul ve online seanslar.",
 };
 
 export default function RootLayout({
