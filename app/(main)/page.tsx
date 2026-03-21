@@ -1,29 +1,25 @@
+import type { Metadata } from "next";
 import {
-  Hero,
-  About,
-  AreasOfWork,
-  ServicesList,
-  ContactForm,
-  MapView,
-} from "@/components/feature";
-import * as officeService from "@/server/services/office-service";
+  DEFAULT_HERO_SUBTITLE,
+  DEFAULT_HERO_TITLE,
+} from "@/components/feature/hero";
+import { HomeTemplate } from "@/components/feature/home-template";
+import { getContactFormOffices } from "@/lib/server/contact-page-data";
+
+export const metadata: Metadata = {
+  title: "Ana Sayfa",
+  description:
+    "Kenan Kübuç — İstanbul merkezli psikolog. Bireysel terapi, çift terapisi ve online danışmanlık. Ana sayfadan tüm hizmetlere ve iletişim formuna ulaşın.",
+};
 
 export default async function HomePage(): Promise<React.JSX.Element> {
-  const officesResult = await officeService.getAll({ page: 1, pageSize: 100 });
-
-  const offices =
-    officesResult.success
-      ? officesResult.data.data.map((o) => ({ id: o.id, name: o.name }))
-      : [];
+  const offices = await getContactFormOffices();
 
   return (
-    <>
-      <Hero />
-      <About />
-      <AreasOfWork />
-      <ServicesList />
-      <ContactForm offices={offices} />
-      <MapView />
-    </>
+    <HomeTemplate
+      heroTitle={DEFAULT_HERO_TITLE}
+      heroSubtitle={DEFAULT_HERO_SUBTITLE}
+      offices={offices}
+    />
   );
 }

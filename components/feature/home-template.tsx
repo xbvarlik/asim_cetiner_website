@@ -1,0 +1,29 @@
+import { About } from "./about";
+import { AreasOfWork } from "./areas-of-work";
+import { ContactForm } from "./contact-form";
+import { Hero } from "./hero";
+import { MapView } from "./map-view";
+import { ServicesList } from "./services-list";
+
+export type HomeTemplateProps = {
+  heroTitle: string;
+  heroSubtitle: string;
+  offices: Array<{ id: number; name: string }>;
+};
+
+export function HomeTemplate({
+  heroTitle,
+  heroSubtitle,
+  offices,
+}: HomeTemplateProps): React.JSX.Element {
+  return (
+    <>
+      <Hero title={heroTitle} subtitle={heroSubtitle} />
+      <About />
+      <AreasOfWork />
+      <ServicesList />
+      <ContactForm offices={offices} />
+      <MapView />
+    </>
+  );
+}

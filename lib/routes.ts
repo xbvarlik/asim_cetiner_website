@@ -5,4 +5,9 @@ export const ROUTES = {
   areasOfWork: "/calisma-alanlari",
   contact: "/iletisim",
   blog: "/blog",
+  seoIstanbulPsikolog: "/istanbul-psikolog",
+  seoCiftTerapisi: "/cift-terapisi",
+  seoBilisselDavranisciTerapi: "/bilissel-davranisci-terapi",
+  seoUskudarPsikolog: "/uskudar-psikolog",
+  seoBesiktasPsikolog: "/besiktas-psikolog",
 } as const;

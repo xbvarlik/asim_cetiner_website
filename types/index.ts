@@ -45,3 +45,7 @@ export type NavItem = {
   label: string;
   href: string;
 };
+
+export type { HomeTemplateProps } from "@/components/feature/home-template";
+export type { ContactOfficeOption } from "@/lib/server/contact-page-data";
+export type { SeoLandingSlug } from "@/lib/seo/landing-pages";

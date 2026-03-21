@@ -1,6 +1,6 @@
 import { SiteShell } from "@/components/feature/site-shell";
 
-export default function MainLayout({
+export default function HomeVariationsLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
