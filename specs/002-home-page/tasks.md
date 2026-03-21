@@ -15,11 +15,11 @@
 
 **Purpose**: Initialize Shadcn/UI, configure theme tokens, create routing constant, and extend types.
 
-- [ ] T001 Initialize Shadcn/UI by running `npx shadcn@latest init` and add required components (button, input, label, select, textarea, sheet) via `npx shadcn@latest add`
-- [ ] T002 Update green/off-white color palette in app/globals.css using OKLCH CSS variables in the @theme inline block per research.md Decision 2
-- [ ] T003 [P] Create centralized route definitions in lib/routes.ts with Turkish slugs per research.md Decision 7
-- [ ] T004 [P] Extend types in types/index.ts with ContactFormState and NavItem types per data-model.md
-- [ ] T005 Update root layout in app/layout.tsx: change lang="en" to lang="tr", update metadata title/description to Turkish, and remove dark mode preference media query from globals.css
+- [x] T001 Initialize Shadcn/UI by running `npx shadcn@latest init` and add required components (button, input, label, select, textarea, sheet) via `npx shadcn@latest add`
+- [x] T002 Update green/off-white color palette in app/globals.css using OKLCH CSS variables in the @theme inline block per research.md Decision 2
+- [x] T003 [P] Create centralized route definitions in lib/routes.ts with Turkish slugs per research.md Decision 7
+- [x] T004 [P] Extend types in types/index.ts with ContactFormState and NavItem types per data-model.md
+- [x] T005 Update root layout in app/layout.tsx: change lang="en" to lang="tr", update metadata title/description to Turkish, and remove dark mode preference media query from globals.css
 
 ---
 
@@ -29,10 +29,10 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T006 Create route group layout at app/(main)/layout.tsx that wraps children with Header and Footer placeholders (import feature components once built)
-- [ ] T007 Move existing app/page.tsx to app/(main)/page.tsx as the home page entry point (empty composition shell importing feature sections)
-- [ ] T008 [P] Add placeholder images to public/images/: hero-bg.jpg (a gradient placeholder) and therapist.jpg (a placeholder image), and clean up default Next.js SVGs from public/
-- [ ] T009 [P] Create barrel export file at components/feature/index.ts exporting all feature components (initially empty, updated as components are built)
+- [x] T006 Create route group layout at app/(main)/layout.tsx that wraps children with Header and Footer placeholders (import feature components once built)
+- [x] T007 Move existing app/page.tsx to app/(main)/page.tsx as the home page entry point (empty composition shell importing feature sections)
+- [x] T008 [P] Add placeholder images to public/images/: hero-bg.jpg (a gradient placeholder) and therapist.jpg (a placeholder image), and clean up default Next.js SVGs from public/
+- [x] T009 [P] Create barrel export file at components/feature/index.ts exporting all feature components (initially empty, updated as components are built)
 
 **Checkpoint**: Route group structure ready, home page shell exists — feature component development can begin.
 
@@ -46,10 +46,10 @@
 
 ### Implementation for User Story 1
 
-- [ ] T010 [P] [US1] Create Header component in components/feature/header.tsx: sticky nav bar with desktop horizontal links (Home, Hakkımda, Çalışma Alanları, İletişim, Hizmetler, Blog) using ROUTES from lib/routes.ts and next/link, plus mobile Sheet drawer with hamburger toggle ('use client' needed for Sheet)
-- [ ] T011 [P] [US1] Create Hero component in components/feature/hero.tsx: full-width section with background image (next/image with priority and fill), H1 title in Turkish, subtitle, and two CTA Button components linking to ROUTES.contact and ROUTES.services
-- [ ] T012 [P] [US1] Create Footer component in components/feature/footer.tsx: phone number, address, email, site-map links using ROUTES, social media icons (Instagram, WhatsApp) with placeholder URLs, and a CTA Button
-- [ ] T013 [US1] Wire Header and Footer into app/(main)/layout.tsx and compose Hero into app/(main)/page.tsx, update barrel export in components/feature/index.ts
+- [x] T010 [P] [US1] Create Header component in components/feature/header.tsx: sticky nav bar with desktop horizontal links (Home, Hakkımda, Çalışma Alanları, İletişim, Hizmetler, Blog) using ROUTES from lib/routes.ts and next/link, plus mobile Sheet drawer with hamburger toggle ('use client' needed for Sheet)
+- [x] T011 [P] [US1] Create Hero component in components/feature/hero.tsx: full-width section with background image (next/image with priority and fill), H1 title in Turkish, subtitle, and two CTA Button components linking to ROUTES.contact and ROUTES.services
+- [x] T012 [P] [US1] Create Footer component in components/feature/footer.tsx: phone number, address, email, site-map links using ROUTES, social media icons (Instagram, WhatsApp) with placeholder URLs, and a CTA Button
+- [x] T013 [US1] Wire Header and Footer into app/(main)/layout.tsx and compose Hero into app/(main)/page.tsx, update barrel export in components/feature/index.ts
 
 **Checkpoint**: Page shell functional — hero visible above fold, sticky header, footer with contact info. Mobile responsive with hamburger drawer.
 
@@ -63,10 +63,10 @@
 
 ### Implementation for User Story 2
 
-- [ ] T014 [P] [US2] Create About component in components/feature/about.tsx: two-column layout (text/title left, therapist image right using next/image), stacking vertically on mobile. Mock Turkish bio text as a constant.
-- [ ] T015 [P] [US2] Create AreasOfWork component in components/feature/areas-of-work.tsx: flexible tag-cloud layout displaying 10+ mock Turkish clinical area labels (e.g., Anksiyete, Depresyon, Travma, Çift Terapisi, etc.) using styled tags/badges
-- [ ] T016 [P] [US2] Create ServicesList component in components/feature/services-list.tsx: responsive grid (3 columns desktop, 1 mobile) with 6 service cards, each containing a Lucide icon, Turkish title, and short Turkish description. Mock data as a constant array.
-- [ ] T017 [US2] Compose About, AreasOfWork, and ServicesList into app/(main)/page.tsx below Hero, update barrel export in components/feature/index.ts
+- [x] T014 [P] [US2] Create About component in components/feature/about.tsx: two-column layout (text/title left, therapist image right using next/image), stacking vertically on mobile. Mock Turkish bio text as a constant.
+- [x] T015 [P] [US2] Create AreasOfWork component in components/feature/areas-of-work.tsx: flexible tag-cloud layout displaying 10+ mock Turkish clinical area labels (e.g., Anksiyete, Depresyon, Travma, Çift Terapisi, etc.) using styled tags/badges
+- [x] T016 [P] [US2] Create ServicesList component in components/feature/services-list.tsx: responsive grid (3 columns desktop, 1 mobile) with 6 service cards, each containing a Lucide icon, Turkish title, and short Turkish description. Mock data as a constant array.
+- [x] T017 [US2] Compose About, AreasOfWork, and ServicesList into app/(main)/page.tsx below Hero, update barrel export in components/feature/index.ts
 
 **Checkpoint**: All informational sections render correctly with responsive layouts and Turkish content.
 
@@ -80,10 +80,10 @@
 
 ### Implementation for User Story 3
 
-- [ ] T018 [US3] Create Server Action in server/actions/lead-actions.ts: createLeadAction function with 'use server' directive implementing honeypot check, Zod safeParse with createLeadSchema, leadService.create with statusId=1, revalidatePath, and Turkish error messages per contracts
-- [ ] T019 [US3] Create ContactForm component in components/feature/contact-form.tsx: 'use client' component using useActionState with createLeadAction, Shadcn Input/Label/Select/Textarea/Button atoms, honeypot hidden field, inline field error display, success confirmation message, and form reset on success. Office list received as props.
-- [ ] T020 [P] [US3] Create MapView component in components/feature/map-view.tsx: styled placeholder div with Turkish label for office location
-- [ ] T021 [US3] Update app/(main)/page.tsx to fetch offices via officeService.getAll() in the Server Component, pass office list as props to ContactForm, and compose ContactForm and MapView sections. Update barrel export in components/feature/index.ts.
+- [x] T018 [US3] Create Server Action in server/actions/lead-actions.ts: createLeadAction function with 'use server' directive implementing honeypot check, Zod safeParse with createLeadSchema, leadService.create with statusId=1, revalidatePath, and Turkish error messages per contracts
+- [x] T019 [US3] Create ContactForm component in components/feature/contact-form.tsx: 'use client' component using useActionState with createLeadAction, Shadcn Input/Label/Select/Textarea/Button atoms, honeypot hidden field, inline field error display, success confirmation message, and form reset on success. Office list received as props.
+- [x] T020 [P] [US3] Create MapView component in components/feature/map-view.tsx: styled placeholder div with Turkish label for office location
+- [x] T021 [US3] Update app/(main)/page.tsx to fetch offices via officeService.getAll() in the Server Component, pass office list as props to ContactForm, and compose ContactForm and MapView sections. Update barrel export in components/feature/index.ts.
 
 **Checkpoint**: Full lead capture flow functional — form validates, honeypot rejects bots silently, leads persist in database, office dropdown populated from seeded data.
 
@@ -93,11 +93,11 @@
 
 **Purpose**: Build verification, responsiveness audit, and cleanup.
 
-- [ ] T022 Verify all components use explicit TypeScript return types, no `any` usage, and kebab-case file naming across components/feature/ and server/actions/
-- [ ] T023 Verify mobile responsiveness: all 8 sections render correctly at 375px, 768px, and 1280px viewports with no horizontal overflow
-- [ ] T024 [P] Verify all navigation links use ROUTES constant from lib/routes.ts — no hardcoded route strings in any component
-- [ ] T025 [P] Verify all images use next/image with alt text in Turkish, hero image has priority prop
-- [ ] T026 Run `npx next build` to confirm zero TypeScript errors and successful production build
+- [x] T022 Verify all components use explicit TypeScript return types, no `any` usage, and kebab-case file naming across components/feature/ and server/actions/
+- [x] T023 Verify mobile responsiveness: all 8 sections render correctly at 375px, 768px, and 1280px viewports with no horizontal overflow
+- [x] T024 [P] Verify all navigation links use ROUTES constant from lib/routes.ts — no hardcoded route strings in any component
+- [x] T025 [P] Verify all images use next/image with alt text in Turkish, hero image has priority prop
+- [x] T026 Run `npx next build` to confirm zero TypeScript errors and successful production build
 
 ---
 

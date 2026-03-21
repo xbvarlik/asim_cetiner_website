@@ -28,3 +28,20 @@ export type PaginatedResult<T> = {
 export type ServiceResult<T> =
   | { success: true; data: T }
   | { success: false; error: string };
+
+export type ContactFormState = {
+  success: boolean;
+  error?: string;
+  fieldErrors?: {
+    name?: string[];
+    phoneNumber?: string[];
+    email?: string[];
+    message?: string[];
+    officeId?: string[];
+  };
+};
+
+export type NavItem = {
+  label: string;
+  href: string;
+};
