@@ -48,4 +48,14 @@ export {
   SheetTrigger,
 } from "./sheet";
 export { TabsRoot, TabsList, TabsTrigger, TabsContent } from "./tabs";
+export {
+  Card,
+  CardHeader,
+  CardFooter,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "./card";
+export { Popover, PopoverTrigger, PopoverContent } from "./popover";
+export { Calendar } from "./calendar";
 
