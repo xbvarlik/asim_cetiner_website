@@ -31,6 +31,7 @@ export type LeadAdminRowDto = {
   name: string;
   email: string;
   phoneNumber: string;
+  utmSource: string | null;
   createdAt: string;
   updatedAt: string;
   office: { id: number; name: string };
@@ -169,6 +170,7 @@ export function AdminLeadsTable({
               />
             </TableHead>
             <TableHead>İletişim</TableHead>
+            <TableHead>Kaynak</TableHead>
             <TableHead>Ofis</TableHead>
             <TableHead>Durum</TableHead>
             <TableHead>
@@ -197,7 +199,7 @@ export function AdminLeadsTable({
         <TableBody>
           {rows.length === 0 ? (
             <TableRow>
-              <TableCell colSpan={7} className="text-muted-foreground py-8 text-center">
+              <TableCell colSpan={8} className="text-muted-foreground py-8 text-center">
                 Kayıt yok.
               </TableCell>
             </TableRow>
@@ -208,6 +210,9 @@ export function AdminLeadsTable({
                 <TableCell className="max-w-[200px] truncate text-xs">
                   <div>{row.email}</div>
                   <div className="text-muted-foreground">{row.phoneNumber}</div>
+                </TableCell>
+                <TableCell className="max-w-[100px] truncate text-xs text-muted-foreground">
+                  {row.utmSource ?? "—"}
                 </TableCell>
                 <TableCell>{row.office.name}</TableCell>
                 <TableCell>

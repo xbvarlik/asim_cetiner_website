@@ -63,6 +63,7 @@ export default async function AdminLeadsPage({
     name: row.name,
     email: row.email,
     phoneNumber: row.phoneNumber,
+    utmSource: row.utmSource ?? null,
     createdAt: row.createdAt.toISOString(),
     updatedAt: row.updatedAt.toISOString(),
     office: row.office,

@@ -47,4 +47,5 @@ export {
   SheetTitle,
   SheetTrigger,
 } from "./sheet";
+export { TabsRoot, TabsList, TabsTrigger, TabsContent } from "./tabs";
 

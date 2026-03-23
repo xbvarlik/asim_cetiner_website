@@ -1,6 +1,7 @@
 "use client";
 
-import { useActionState, useRef, useEffect } from "react";
+import { Suspense, useActionState, useRef, useEffect, useState } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -13,6 +14,7 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { createLeadAction } from "@/server/actions/lead-actions";
+import { readAttributionSource } from "@/lib/attribution-storage";
 import type { ContactFormState } from "@/types";
 
 type ContactFormProps = {
@@ -21,16 +23,24 @@ type ContactFormProps = {
 
 const INITIAL_STATE: ContactFormState = { success: false };
 
-export function ContactForm({ offices }: ContactFormProps): React.JSX.Element {
+function ContactFormInner({ offices }: ContactFormProps): React.JSX.Element {
   const [state, formAction, pending] = useActionState(
     createLeadAction,
     INITIAL_STATE
   );
   const formRef = useRef<HTMLFormElement>(null);
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const [utmSource, setUtmSource] = useState("");
+
+  useEffect(() => {
+    setUtmSource(readAttributionSource() ?? "");
+  }, [pathname, searchParams]);
 
   useEffect(() => {
     if (state.success) {
       formRef.current?.reset();
+      setUtmSource(readAttributionSource() ?? "");
     }
   }, [state]);
 
@@ -62,6 +72,7 @@ export function ContactForm({ offices }: ContactFormProps): React.JSX.Element {
           )}
 
           <form ref={formRef} action={formAction} className="space-y-5">
+            <input type="hidden" name="utmSource" value={utmSource} />
             <input
               type="text"
               name="honeypot"
@@ -177,6 +188,36 @@ export function ContactForm({ offices }: ContactFormProps): React.JSX.Element {
               {pending ? "Gönderiliyor..." : "Mesaj Gönder"}
             </Button>
           </form>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function ContactForm(props: ContactFormProps): React.JSX.Element {
+  return (
+    <Suspense fallback={<ContactFormFallback offices={props.offices} />}>
+      <ContactFormInner {...props} />
+    </Suspense>
+  );
+}
+
+function ContactFormFallback({
+  offices,
+}: ContactFormProps): React.JSX.Element {
+  return (
+    <section id="iletisim" className="bg-muted py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            İletişime Geçin
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground text-sm">
+            Form yükleniyor…
+          </p>
+        </div>
+        <div className="mx-auto mt-12 max-w-xl text-center text-muted-foreground text-sm">
+          {offices.length === 0 ? "Ofis bilgisi yok." : null}
         </div>
       </div>
     </section>

@@ -5,7 +5,7 @@ alwaysApply: true
 ---
 # kenan_kubuc_website Development Guidelines
 
-Auto-generated from all feature plans. Last updated: 2026-03-21
+Auto-generated from all feature plans. Last updated: 2026-03-23
 
 ## Active Technologies
 - TypeScript 5.x (Node.js 18+ LTS) + Next.js LTS (App Router), React 19+, Prisma ORM, Zod, Tailwind CSS, Shadcn/UI (001-backend-data-layer)
@@ -33,9 +33,9 @@ cd src; pytest; ruff check .
 [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]: Follow standard conventions
 
 ## Recent Changes
+- 006-traffic-attribution-share: Added TypeScript 5.x (strict)
 - 005-public-blog-pages: Added TypeScript 5.x (strict)
 - 004-admin-panel: Added TypeScript 5.x (strict)
-- 003-routing-seo-pages: Added TypeScript 5.x
 
 
 <!-- MANUAL ADDITIONS START -->

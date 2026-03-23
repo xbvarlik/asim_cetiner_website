@@ -21,6 +21,10 @@ const contactFormSchema = z.object({
     .number()
     .int()
     .positive("Lütfen bir ofis seçiniz"),
+  utmSource: z.preprocess(
+    (v) => (v == null || v === "" ? undefined : String(v)),
+    z.string().max(128).optional()
+  ),
 });
 
 const INITIAL_STATE: ContactFormState = { success: false };
@@ -40,6 +44,7 @@ export async function createLeadAction(
     email: formData.get("email"),
     message: formData.get("message") || undefined,
     officeId: formData.get("officeId"),
+    utmSource: formData.get("utmSource") || undefined,
   };
 
   const parsed = contactFormSchema.safeParse(raw);
@@ -52,9 +57,12 @@ export async function createLeadAction(
     };
   }
 
+  const { utmSource, ...rest } = parsed.data;
+
   const result = await leadService.create({
-    ...parsed.data,
+    ...rest,
     statusId: 1,
+    ...(utmSource !== undefined && { utmSource }),
   });
 
   if (!result.success) {
