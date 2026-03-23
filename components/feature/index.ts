@@ -34,3 +34,5 @@ export { BlogCard } from "./blog-card";
 export type { BlogCardProps } from "./blog-card";
 export { BlogContent } from "./blog-content";
 export type { BlogContentProps } from "./blog-content";
+export { StatsDashboard } from "./stats/stats-dashboard";
+export type { StatsDashboardProps } from "./stats/stats-dashboard";

@@ -74,6 +74,49 @@ export type NavItem = {
   href: string;
 };
 
+/** Admin stats dashboard (serializable to client chart props). */
+export type LeadBySourceStat = {
+  sourceKey: string;
+  sourceLabel: string;
+  count: number;
+};
+
+export type LeadByOfficeStat = {
+  officeId: number;
+  officeName: string;
+  count: number;
+};
+
+export type VisitorBySourceStat = {
+  sourceKey: string;
+  sourceLabel: string;
+  count: number;
+};
+
+export type ConversionStatRow = {
+  sourceKey: string;
+  sourceLabel: string;
+  visitors: number;
+  leads: number;
+  conversionPercent: number | null;
+};
+
+export type DailySourceMetric = {
+  day: string;
+  sourceKey: string;
+  sourceLabel: string;
+  visitors: number;
+  leads: number;
+};
+
+export type AdminStatsBundle = {
+  leadsBySource: LeadBySourceStat[];
+  leadsByOffice: LeadByOfficeStat[];
+  visitorsBySource: VisitorBySourceStat[];
+  conversion: ConversionStatRow[];
+  dailyBySource: DailySourceMetric[];
+};
+
 export type { HomeTemplateProps } from "@/components/feature/home-template";
 export type { ContactOfficeOption } from "@/lib/server/contact-page-data";
 export type { SeoLandingSlug } from "@/lib/seo/landing-pages";
