@@ -2,6 +2,7 @@ import { Suspense } from "react";
 
 import { Footer } from "@/components/feature/footer";
 import { Header } from "@/components/feature/header";
+import { MobileBottomContactBar } from "@/components/feature/mobile-bottom-contact-bar";
 import { TrafficTracker } from "@/components/feature/traffic-tracker";
 
 export function SiteShell({
@@ -17,6 +18,7 @@ export function SiteShell({
       <Header />
       <main className="flex-1 bg-background">{children}</main>
       <Footer />
+      <MobileBottomContactBar />
     </>
   );
 }

@@ -40,6 +40,8 @@
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
   --color-header-nav-foreground: var(--header-nav-foreground);
+  --color-cta-whatsapp: var(--cta-whatsapp);
+  --color-cta-phone: var(--cta-phone);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -84,6 +86,8 @@
   --sidebar-ring: oklch(0.30 0.08 160);
   /* Dark green nav labels on light frosted header — ~4.5:1+ vs ~97% bg */
   --header-nav-foreground: oklch(0.34 0.075 158);
+  --cta-whatsapp: #25d366;
+  --cta-phone: #007aff;
 }
 
 
