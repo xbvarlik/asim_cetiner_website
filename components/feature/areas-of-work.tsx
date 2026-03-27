@@ -1,3 +1,5 @@
+import { RevealSection } from "@/components/feature/motion/reveal-section";
+
 const CLINICAL_AREAS = [
   "Anksiyete Bozuklukları",
   "Depresyon",
@@ -15,7 +17,8 @@ const CLINICAL_AREAS = [
 
 export function AreasOfWork(): React.JSX.Element {
   return (
-    <section className="bg-muted py-16 sm:py-24">
+    <RevealSection className="block w-full">
+    <section className="bg-muted py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -30,7 +33,7 @@ export function AreasOfWork(): React.JSX.Element {
           {CLINICAL_AREAS.map((area) => (
             <span
               key={area}
-              className="rounded-full border border-border bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground sm:text-base"
+              className="rounded-full border border-border bg-background px-4 py-2 text-sm font-medium text-foreground transition-[transform,box-shadow,background-color] duration-300 hover:-translate-y-0.5 hover:bg-card hover:shadow-md sm:text-base"
             >
               {area}
             </span>
@@ -38,5 +41,6 @@ export function AreasOfWork(): React.JSX.Element {
         </div>
       </div>
     </section>
+    </RevealSection>
   );
 }

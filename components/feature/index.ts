@@ -1,3 +1,4 @@
+export { RevealSection } from "./motion/reveal-section";
 export { Header } from "./header";
 export { Hero, DEFAULT_HERO_TITLE, DEFAULT_HERO_SUBTITLE } from "./hero";
 export { About } from "./about";

@@ -36,11 +36,11 @@ export function Header(): React.JSX.Element {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+      <header className="sticky top-0 z-50 w-full border-b border-border/80 bg-background/90 shadow-sm backdrop-blur-md supports-[backdrop-filter]:bg-background/75">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-2 px-4 sm:px-6 lg:px-8">
           <Link
             href={homeHref}
-            className="min-w-0 shrink text-xl font-bold text-primary"
+            className="min-w-0 shrink rounded-lg text-xl font-semibold tracking-tight text-primary transition-colors hover:text-primary/90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
           >
             Kenan Kübuç
           </Link>
@@ -50,7 +50,7 @@ export function Header(): React.JSX.Element {
               type="button"
               variant="ghost"
               size="icon"
-              className="shrink-0"
+              className="shrink-0 rounded-lg focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               aria-label="Paylaş"
               onClick={() => {
                 setShareOpen(true);
@@ -64,7 +64,7 @@ export function Header(): React.JSX.Element {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="rounded-md px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                  className="rounded-lg px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
                 >
                   {item.label}
                 </Link>
@@ -96,7 +96,7 @@ export function Header(): React.JSX.Element {
                       onClick={() => {
                         setOpen(false);
                       }}
-                      className="rounded-md px-3 py-2 text-base font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                      className="rounded-lg px-3 py-2 text-base font-medium text-foreground transition-colors hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
                     >
                       {item.label}
                     </Link>

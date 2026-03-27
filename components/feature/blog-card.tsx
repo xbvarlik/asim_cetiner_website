@@ -12,7 +12,7 @@ export function BlogCard({ post }: BlogCardProps): React.JSX.Element {
   const preview = htmlToPlainText(post.content);
 
   return (
-    <article className="border-b border-border pb-8 last:border-0 last:pb-0">
+    <article className="group border-b border-border pb-8 transition-[transform,opacity] duration-300 last:border-0 last:pb-0 hover:translate-x-0.5">
       <h2 className="text-xl font-semibold text-primary sm:text-2xl">
         {post.title}
       </h2>
@@ -27,7 +27,7 @@ export function BlogCard({ post }: BlogCardProps): React.JSX.Element {
       </p>
       <Link
         href={getBlogPostPath(post.id)}
-        className="mt-4 inline-flex rounded-sm text-sm font-medium text-primary underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
+        className="mt-4 inline-flex rounded-md text-sm font-medium text-primary underline-offset-4 transition-colors hover:underline focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
       >
         Devamını oku
       </Link>

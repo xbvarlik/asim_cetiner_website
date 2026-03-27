@@ -1,8 +1,11 @@
 import Image from "next/image";
 
+import { RevealSection } from "@/components/feature/motion/reveal-section";
+
 export function About(): React.JSX.Element {
   return (
-    <section className="bg-background py-16 sm:py-24">
+    <RevealSection className="block w-full">
+    <section className="bg-background py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
@@ -41,5 +44,6 @@ export function About(): React.JSX.Element {
         </div>
       </div>
     </section>
+    </RevealSection>
   );
 }

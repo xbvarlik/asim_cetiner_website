@@ -7,8 +7,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-heading: var(--font-heading-family), ui-serif, Georgia, serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -60,8 +61,8 @@
   --secondary-foreground: oklch(0.25 0.06 160);
   --muted: oklch(0.92 0.01 120);
   --muted-foreground: oklch(0.45 0.03 160);
-  --accent: oklch(0.94 0.02 120);
-  --accent-foreground: oklch(0.30 0.08 160);
+  --accent: oklch(0.93 0.04 45);
+  --accent-foreground: oklch(0.28 0.06 160);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.88 0.02 150);
   --input: oklch(0.90 0.015 150);
@@ -88,10 +89,16 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground leading-relaxed;
   }
   html {
     @apply font-sans;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-heading-family), ui-serif, Georgia, serif;
+    text-wrap: balance;
   }
 }
 
@@ -104,4 +111,28 @@
 .blog-body pre {
   max-width: 100%;
   overflow-x: auto;
+}
+
+@keyframes hero-intro {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-intro-animate {
+    animation: hero-intro 0.9s ease-out forwards;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-intro-animate {
+    opacity: 1;
+  }
 }
