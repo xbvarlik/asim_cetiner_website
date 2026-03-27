@@ -24,6 +24,13 @@ type ContactFormProps = {
 
 const INITIAL_STATE: ContactFormState = { success: false };
 
+const contactControlClass =
+  "h-11 min-h-11 px-3 py-2 text-base md:text-base rounded-xl";
+const contactTextareaClass =
+  "min-h-[7.5rem] px-3 py-3 text-base md:text-base rounded-xl resize-y";
+const contactSelectTriggerClass =
+  "h-11 min-h-11 w-full justify-between px-3 text-base data-[size=default]:h-11";
+
 function ContactFormInner({ offices }: ContactFormProps): React.JSX.Element {
   const [state, formAction, pending] = useActionState(
     createLeadAction,
@@ -95,6 +102,7 @@ function ContactFormInner({ offices }: ContactFormProps): React.JSX.Element {
                 type="text"
                 required
                 placeholder="Adınız ve soyadınız"
+                className={contactControlClass}
                 aria-invalid={!!state.fieldErrors?.name}
               />
               {state.fieldErrors?.name && (
@@ -112,6 +120,7 @@ function ContactFormInner({ offices }: ContactFormProps): React.JSX.Element {
                 type="tel"
                 required
                 placeholder="+90 (5XX) XXX XX XX"
+                className={contactControlClass}
                 aria-invalid={!!state.fieldErrors?.phoneNumber}
               />
               {state.fieldErrors?.phoneNumber && (
@@ -129,6 +138,7 @@ function ContactFormInner({ offices }: ContactFormProps): React.JSX.Element {
                 type="email"
                 required
                 placeholder="ornek@email.com"
+                className={contactControlClass}
                 aria-invalid={!!state.fieldErrors?.email}
               />
               {state.fieldErrors?.email && (
@@ -142,7 +152,11 @@ function ContactFormInner({ offices }: ContactFormProps): React.JSX.Element {
               <Label htmlFor="officeId">Ofis *</Label>
               {offices.length > 0 ? (
                 <Select name="officeId" required>
-                  <SelectTrigger id="officeId" aria-invalid={!!state.fieldErrors?.officeId}>
+                  <SelectTrigger
+                    id="officeId"
+                    className={contactSelectTriggerClass}
+                    aria-invalid={!!state.fieldErrors?.officeId}
+                  >
                     <SelectValue placeholder="Ofis seçiniz" />
                   </SelectTrigger>
                   <SelectContent>
@@ -173,8 +187,9 @@ function ContactFormInner({ offices }: ContactFormProps): React.JSX.Element {
               <Textarea
                 id="message"
                 name="message"
-                rows={4}
+                rows={5}
                 placeholder="Mesajınızı buraya yazabilirsiniz (isteğe bağlı)"
+                className={contactTextareaClass}
                 aria-invalid={!!state.fieldErrors?.message}
               />
               {state.fieldErrors?.message && (

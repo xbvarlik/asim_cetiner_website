@@ -4,10 +4,10 @@
 param(
     [switch]$Json,
     [string]$ShortName,
-    [int]$Number = 0,
     [switch]$Help,
-    [Parameter(ValueFromRemainingArguments = $true)]
-    [string[]]$FeatureDescription
+    [Parameter(Position = 0)]
+    [string]$FeatureSpec = "",
+    [int]$Number = 0
 )
 $ErrorActionPreference = 'Stop'
 
@@ -27,13 +27,7 @@ if ($Help) {
     exit 0
 }
 
-# Check if feature description provided
-if (-not $FeatureDescription -or $FeatureDescription.Count -eq 0) {
-    Write-Error "Usage: ./create-new-feature.ps1 [-Json] [-ShortName <name>] <feature description>"
-    exit 1
-}
-
-$featureDesc = ($FeatureDescription -join ' ').Trim()
+$featureDesc = $FeatureSpec.Trim()
 
 # Validate description is not empty after trimming (e.g., user passed only whitespace)
 if ([string]::IsNullOrWhiteSpace($featureDesc)) {
