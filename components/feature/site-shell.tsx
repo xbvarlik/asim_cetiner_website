@@ -16,7 +16,7 @@ export function SiteShell({
         <TrafficTracker />
       </Suspense>
       <Header />
-      <main className="flex-1 bg-background">{children}</main>
+      <main className="flex-1 bg-background pb-28">{children}</main>
       <Footer />
       <MobileBottomContactBar />
     </>

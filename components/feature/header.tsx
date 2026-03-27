@@ -26,6 +26,9 @@ const STATIC_NAV_REST: NavItem[] = [
 const navLinkClassName =
   "rounded-xl px-3 py-2 text-base font-medium text-header-nav-foreground transition-colors duration-300 hover:bg-muted/70 hover:text-header-nav-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none";
 
+const sheetNavLinkClassName =
+  "block min-h-14 w-full rounded-xl px-3 py-4 text-center text-base font-medium text-header-nav-foreground transition-colors duration-300 hover:bg-muted/70 hover:text-header-nav-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none";
+
 const iconButtonClassName =
   "shrink-0 rounded-xl text-header-nav-foreground transition-[background-color,filter] duration-300 hover:bg-muted/60 hover:brightness-[0.98] focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
@@ -43,8 +46,8 @@ export function Header(): React.JSX.Element {
   return (
     <>
       <header className="sticky top-0 z-50 w-full border-b border-border/70 bg-background/90 shadow-md backdrop-blur-md supports-[backdrop-filter]:bg-background/75">
-        <div className="mx-auto grid h-20 max-w-7xl grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-3 px-4 sm:px-6 lg:px-8">
-          <div className="flex min-w-0 justify-self-start">
+        <div className="mx-auto grid h-20 max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-3 px-4 sm:px-6 lg:px-8">
+          <div className="flex min-w-0 shrink-0 justify-self-start">
             <Link
               href={homeHref}
               className="min-w-0 shrink rounded-xl text-xl font-semibold tracking-tight text-primary transition-[color,filter] duration-300 hover:text-primary/90 hover:brightness-[0.98] focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none"
@@ -53,18 +56,20 @@ export function Header(): React.JSX.Element {
             </Link>
           </div>
 
-          <nav
-            className="hidden items-center gap-0.5 justify-self-center lg:flex"
-            aria-label="Ana navigasyon"
-          >
-            {navItems.map((item) => (
-              <Link key={item.label} href={item.href} className={navLinkClassName}>
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+          <div className="flex min-w-0 justify-center">
+            <nav
+              className="hidden items-center gap-0.5 lg:flex"
+              aria-label="Ana navigasyon"
+            >
+              {navItems.map((item) => (
+                <Link key={item.label} href={item.href} className={navLinkClassName}>
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
 
-          <div className="flex items-center justify-end justify-self-end gap-1">
+          <div className="flex shrink-0 items-center justify-end gap-1 justify-self-end">
             <Button
               type="button"
               variant="ghost"
@@ -96,12 +101,10 @@ export function Header(): React.JSX.Element {
                   <Menu className="h-5 w-5" />
                 )}
               </SheetTrigger>
-              <SheetContent side="right" className="w-72">
-                <SheetTitle className="text-lg font-bold text-primary">
-                  Menü
-                </SheetTitle>
+              <SheetContent side="right" className="w-full max-w-sm sm:max-w-md">
+                <SheetTitle className="sr-only">Mobil navigasyon</SheetTitle>
                 <nav
-                  className="mt-6 flex flex-col gap-1"
+                  className="mt-2 flex flex-col items-stretch gap-0"
                   aria-label="Mobil navigasyon"
                 >
                   {navItems.map((item) => (
@@ -111,7 +114,7 @@ export function Header(): React.JSX.Element {
                       onClick={() => {
                         setOpen(false);
                       }}
-                      className={navLinkClassName}
+                      className={sheetNavLinkClassName}
                     >
                       {item.label}
                     </Link>
