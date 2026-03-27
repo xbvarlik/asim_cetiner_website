@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { AboutPortraitMotion } from "@/components/feature/about-portrait-motion";
 import { RevealSection } from "@/components/feature/motion/reveal-section";
 
 export function About(): React.JSX.Element {
@@ -32,15 +33,15 @@ export function About(): React.JSX.Element {
             </div>
           </div>
 
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-2xl bg-muted lg:mx-0">
+          <AboutPortraitMotion className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl bg-muted shadow-sm ring-1 ring-border/30 lg:mx-0">
             <Image
-              src="/images/therapist.jpg"
-              alt="Psikolog Kenan Kübuç"
+              src="/images/kenan_kubuc_stok.jpg"
+              alt="Psikolog Kenan Kübuç, klinik psikolog"
               fill
-              className="object-cover"
+              className="object-cover object-top"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 448px"
             />
-          </div>
+          </AboutPortraitMotion>
         </div>
       </div>
     </section>
