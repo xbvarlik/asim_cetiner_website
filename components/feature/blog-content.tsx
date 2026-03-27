@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { RevealSection } from "@/components/feature/motion/reveal-section";
 import { stripUnsafeBlogHtml, formatBlogPostDate } from "@/lib/blog-public-html";
 import { ROUTES } from "@/lib/routes";
 import { cn } from "@/lib/utils";
@@ -17,6 +18,7 @@ export function BlogContent({
   const safeHtml = stripUnsafeBlogHtml(post.content);
 
   return (
+    <RevealSection className="block w-full">
     <section className="bg-background py-12 sm:py-16">
       <article className="mx-auto max-w-prose px-4 sm:px-6">
         <Link
@@ -44,5 +46,6 @@ export function BlogContent({
         />
       </article>
     </section>
+    </RevealSection>
   );
 }

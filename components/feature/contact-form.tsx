@@ -13,6 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { RevealSection } from "@/components/feature/motion/reveal-section";
 import { createLeadAction } from "@/server/actions/lead-actions";
 import { readAttributionSource } from "@/lib/attribution-storage";
 import type { ContactFormState } from "@/types";
@@ -34,18 +35,22 @@ function ContactFormInner({ offices }: ContactFormProps): React.JSX.Element {
   const [utmSource, setUtmSource] = useState("");
 
   useEffect(() => {
+    // Sync session attribution to hidden field after client navigation.
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- external storage, not derivable on server
     setUtmSource(readAttributionSource() ?? "");
   }, [pathname, searchParams]);
 
   useEffect(() => {
     if (state.success) {
       formRef.current?.reset();
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- refresh attribution after successful submit
       setUtmSource(readAttributionSource() ?? "");
     }
   }, [state]);
 
   return (
-    <section id="iletisim" className="bg-muted py-16 sm:py-24">
+    <RevealSection className="block w-full">
+    <section id="iletisim" className="bg-muted py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -191,6 +196,7 @@ function ContactFormInner({ offices }: ContactFormProps): React.JSX.Element {
         </div>
       </div>
     </section>
+    </RevealSection>
   );
 }
 
@@ -206,7 +212,8 @@ function ContactFormFallback({
   offices,
 }: ContactFormProps): React.JSX.Element {
   return (
-    <section id="iletisim" className="bg-muted py-16 sm:py-24">
+    <RevealSection className="block w-full">
+    <section id="iletisim" className="bg-muted py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -221,5 +228,6 @@ function ContactFormFallback({
         </div>
       </div>
     </section>
+    </RevealSection>
   );
 }

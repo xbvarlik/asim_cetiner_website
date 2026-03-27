@@ -14,24 +14,24 @@ const SITE_LINKS: NavItem[] = [
 
 export function Footer(): React.JSX.Element {
   return (
-    <footer className="border-t border-border bg-primary text-primary-foreground">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <footer className="border-t border-border bg-muted/40">
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h3 className="text-lg font-bold">Kenan Kübuç</h3>
-            <p className="mt-2 text-sm text-primary-foreground/75">
+            <h3 className="text-lg font-semibold text-foreground">Kenan Kübuç</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               Profesyonel psikolojik danışmanlık ve terapi hizmetleri.
             </p>
             <Link
               href={ROUTES.contact}
-              className="mt-4 inline-flex h-8 items-center justify-center rounded-lg bg-background px-4 text-sm font-medium text-primary transition-colors hover:bg-background/90"
+              className="mt-4 inline-flex h-10 items-center justify-center rounded-xl bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-sm transition-[filter,transform] hover:brightness-95 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
             >
               Randevu Alın
             </Link>
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
               Site Haritası
             </h4>
             <nav className="mt-4 flex flex-col gap-2">
@@ -39,7 +39,7 @@ export function Footer(): React.JSX.Element {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-sm text-primary-foreground/75 transition-colors hover:text-primary-foreground"
+                  className="text-sm text-foreground/90 transition-colors hover:text-primary focus-visible:rounded-md focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
                 >
                   {item.label}
                 </Link>
@@ -48,10 +48,10 @@ export function Footer(): React.JSX.Element {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
               İletişim
             </h4>
-            <ul className="mt-4 flex flex-col gap-3 text-sm text-primary-foreground/75">
+            <ul className="mt-4 flex flex-col gap-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0" />
                 <span>+90 (555) 123 45 67</span>
@@ -68,7 +68,7 @@ export function Footer(): React.JSX.Element {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
               Sosyal Medya
             </h4>
             <div className="mt-4 flex gap-3">
@@ -77,7 +77,7 @@ export function Footer(): React.JSX.Element {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/10 text-primary-foreground transition-colors hover:bg-primary-foreground/20"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card text-foreground transition-[transform,box-shadow] hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
               >
                 <Instagram className="h-5 w-5" />
               </a>
@@ -86,7 +86,7 @@ export function Footer(): React.JSX.Element {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/10 text-primary-foreground transition-colors hover:bg-primary-foreground/20"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card text-foreground transition-[transform,box-shadow] hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
               >
                 <svg
                   className="h-5 w-5"
@@ -101,7 +101,7 @@ export function Footer(): React.JSX.Element {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-primary-foreground/15 pt-6 text-center text-sm text-primary-foreground/60">
+        <div className="mt-10 border-t border-border pt-6 text-center text-sm text-muted-foreground">
           © {new Date().getFullYear()} Kenan Kübuç. Tüm hakları saklıdır.
         </div>
       </div>

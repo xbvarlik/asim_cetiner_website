@@ -5,7 +5,7 @@ alwaysApply: true
 ---
 # kenan_kubuc_website Development Guidelines
 
-Auto-generated from all feature plans. Last updated: 2026-03-23
+Auto-generated from all feature plans. Last updated: 2026-03-27
 
 ## Active Technologies
 - TypeScript 5.x (Node.js 18+ LTS) + Next.js LTS (App Router), React 19+, Prisma ORM, Zod, Tailwind CSS, Shadcn/UI (001-backend-data-layer)
@@ -13,6 +13,9 @@ Auto-generated from all feature plans. Last updated: 2026-03-23
 - PostgreSQL (existing from 001-backend-data-layer) (002-home-page)
 - PostgreSQL (unchanged) (003-routing-seo-pages)
 - TypeScript 5.x (strict) (004-admin-panel)
+- N/A (presentation only) (008-therapist-component-styling)
+- TypeScript 5.x (strict), Node 20+ + Next.js 16 (App Router), React 19, Tailwind CSS 4, Shadcn/UI, Framer Motion *(to be added — see research.md)* (009-style-home-page)
+- N/A (presentation-only; no schema changes) (009-style-home-page)
 
 - [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION] + [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION] (001-backend-data-layer)
 
@@ -33,9 +36,9 @@ cd src; pytest; ruff check .
 [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]: Follow standard conventions
 
 ## Recent Changes
+- 009-style-home-page: Added TypeScript 5.x (strict), Node 20+ + Next.js 16 (App Router), React 19, Tailwind CSS 4, Shadcn/UI, Framer Motion *(to be added — see research.md)*
+- 008-therapist-component-styling: Added TypeScript 5.x (strict)
 - 007-admin-stats-dashboard: Added TypeScript 5.x (strict)
-- 006-traffic-attribution-share: Added TypeScript 5.x (strict)
-- 005-public-blog-pages: Added TypeScript 5.x (strict)
 
 
 <!-- MANUAL ADDITIONS START -->

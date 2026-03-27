@@ -8,6 +8,8 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
+import { RevealSection } from "@/components/feature/motion/reveal-section";
+
 type ServiceItem = {
   icon: LucideIcon;
   title: string;
@@ -55,7 +57,8 @@ const SERVICES: ServiceItem[] = [
 
 export function ServicesList(): React.JSX.Element {
   return (
-    <section className="bg-background py-16 sm:py-24">
+    <RevealSection className="block w-full">
+    <section className="bg-background py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -72,7 +75,7 @@ export function ServicesList(): React.JSX.Element {
             return (
               <div
                 key={service.title}
-                className="group rounded-xl border border-border bg-card p-6 transition-shadow hover:shadow-md"
+                className="group rounded-2xl border border-border bg-card p-6 shadow-sm transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:shadow-lg focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
                   <Icon className="h-6 w-6" />
@@ -89,5 +92,6 @@ export function ServicesList(): React.JSX.Element {
         </div>
       </div>
     </section>
+    </RevealSection>
   );
 }
