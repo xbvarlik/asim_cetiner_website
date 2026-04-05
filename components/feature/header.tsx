@@ -52,7 +52,7 @@ export function Header(): React.JSX.Element {
               href={homeHref}
               className="min-w-0 shrink rounded-xl text-xl font-semibold tracking-tight text-primary transition-[color,filter] duration-300 hover:text-primary/90 hover:brightness-[0.98] focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none"
             >
-              Kenan Kübuç
+              Asım Çetiner
             </Link>
           </div>
 

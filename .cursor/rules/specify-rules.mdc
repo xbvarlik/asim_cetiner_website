@@ -33,6 +33,8 @@ Auto-generated from all feature plans. Last updated: 2026-04-05
 - N/A (static FAQ content; no schema changes) (017-faq-section-pages)
 - TypeScript 5.x (strict) + Next.js 16 (App Router), React 19, Tailwind CSS 4, Shadcn/UI (`@base-ui` primitives), lucide-react; existing **Sheet** primitive at `components/ui/sheet.tsx` (018-admin-mobile-layout)
 - N/A — no Prisma or schema changes (018-admin-mobile-layout)
+- TypeScript 5.x (strict), Node 20+ + Next.js 16 (App Router), React 19, Tailwind CSS 4 (`@import "tailwindcss"` + `@theme inline` in `app/globals.css`), Shadcn/UI (`@base-ui` primitives), Framer Motion (existing sections), lucide-react (019-rebrand-asim-cetiner)
+- PostgreSQL via Prisma (unchanged; no data migration for this feature) (019-rebrand-asim-cetiner)
 
 ## Project Structure
 
@@ -51,9 +53,9 @@ npm run dev; npm run lint
 TypeScript 5.x (strict): Follow standard conventions; Next.js / React patterns per constitution.
 
 ## Recent Changes
+- 019-rebrand-asim-cetiner: Added TypeScript 5.x (strict), Node 20+ + Next.js 16 (App Router), React 19, Tailwind CSS 4 (`@import "tailwindcss"` + `@theme inline` in `app/globals.css`), Shadcn/UI (`@base-ui` primitives), Framer Motion (existing sections), lucide-react
 - 018-admin-mobile-layout: Added TypeScript 5.x (strict) + Next.js 16 (App Router), React 19, Tailwind CSS 4, Shadcn/UI (`@base-ui` primitives), lucide-react; existing **Sheet** primitive at `components/ui/sheet.tsx`
 - 017-faq-section-pages: Added TypeScript 5.x (strict) + Next.js 16 (App Router), React 19, Tailwind CSS 4, Shadcn/UI (`@base-ui` primitives), lucide-react
-- 016-services-detail-routing-legal: Added TypeScript 5.x (strict) + Next.js 16 (App Router), React 19, Tailwind CSS 4, Shadcn/UI (`@base-ui`), Framer Motion 12, lucide-react
 
 
 <!-- MANUAL ADDITIONS START -->

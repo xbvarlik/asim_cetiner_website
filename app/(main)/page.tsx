@@ -9,7 +9,7 @@ import { getContactFormOffices } from "@/lib/server/contact-page-data";
 export const metadata: Metadata = {
   title: "Ana Sayfa",
   description:
-    "Kenan Kübuç — İstanbul merkezli psikolog. Bireysel danışmanlık, çift danışmanlığı ve online danışmanlık. Ana sayfadan tüm hizmetlere ve iletişim formuna ulaşın.",
+    "Asım Çetiner — İstanbul merkezli psikolog. Bireysel danışmanlık, çift danışmanlığı ve online danışmanlık. Ana sayfadan tüm hizmetlere ve iletişim formuna ulaşın.",
 };
 
 export default async function HomePage(): Promise<React.JSX.Element> {

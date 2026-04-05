@@ -23,7 +23,7 @@ export function Footer(): React.JSX.Element {
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h3 className="text-lg font-semibold text-foreground">Kenan Kübuç</h3>
+            <h3 className="text-lg font-semibold text-foreground">Asım Çetiner</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               Profesyonel psikolojik danışmanlık hizmetleri.
             </p>
@@ -104,7 +104,7 @@ export function Footer(): React.JSX.Element {
           yapılmamaktadır.
         </p>
         <div className="mt-4 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Kenan Kübuç. Tüm hakları saklıdır.
+          © {new Date().getFullYear()} Asım Çetiner. Tüm hakları saklıdır.
         </div>
       </div>
     </footer>

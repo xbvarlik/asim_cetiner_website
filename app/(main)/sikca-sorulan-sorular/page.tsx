@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { FaqSection } from "@/components/feature/faq-section";
 
 export const metadata: Metadata = {
-  title: { absolute: "Sıkça Sorulan Sorular | Kenan Kübuç" },
+  title: { absolute: "Sıkça Sorulan Sorular | Asım Çetiner" },
   description:
     "Danışmanlık süreci, seanslar, gizlilik ve online görüşmeler hakkında sık sorulan sorular ve yanıtları.",
 };

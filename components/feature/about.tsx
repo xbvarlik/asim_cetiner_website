@@ -15,7 +15,7 @@ export function About(): React.JSX.Element {
             </h2>
             <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
               <p>
-                Merhaba, ben Kenan Kübuç. Klinik psikolog olarak yılların
+                Merhaba, ben Asım Çetiner. Klinik psikolog olarak yılların
                 deneyimiyle bireylere, çiftlere ve ailelere profesyonel
                 psikolojik destek sunuyorum.
               </p>
@@ -35,8 +35,8 @@ export function About(): React.JSX.Element {
 
           <AboutPortraitMotion className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl bg-muted shadow-sm ring-1 ring-border/30 lg:mx-0">
             <Image
-              src="/images/kenan_kubuc_stok.jpg"
-              alt="Psikolog Kenan Kübuç, klinik psikolog"
+              src="/images/asim_cetiner_stock.jpg"
+              alt="Psikolog Asım Çetiner, klinik psikolog"
               fill
               className="object-cover object-top"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 448px"
