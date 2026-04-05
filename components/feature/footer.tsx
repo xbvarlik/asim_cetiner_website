@@ -12,7 +12,6 @@ const SITE_LINKS: NavItem[] = [
   { label: "Ana Sayfa", href: ROUTES.home },
   { label: "Hakkımda", href: ROUTES.about },
   { label: "Hizmetler", href: ROUTES.services },
-  { label: "Çalışma Alanları", href: ROUTES.areasOfWork },
   { label: "Blog", href: ROUTES.blog },
   { label: "İletişim", href: ROUTES.contact },
 ];
@@ -25,7 +24,7 @@ export function Footer(): React.JSX.Element {
           <div>
             <h3 className="text-lg font-semibold text-foreground">Kenan Kübuç</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Profesyonel psikolojik danışmanlık ve terapi hizmetleri.
+              Profesyonel psikolojik danışmanlık hizmetleri.
             </p>
             <Link
               href={ROUTES.contact}
@@ -67,7 +66,7 @@ export function Footer(): React.JSX.Element {
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
-                <span>123 Terapi Sokak, İstanbul, Türkiye</span>
+                <span>123 Örnek Sokak, İstanbul, Türkiye</span>
               </li>
             </ul>
           </div>
@@ -99,7 +98,11 @@ export function Footer(): React.JSX.Element {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-border pt-6 text-center text-sm text-muted-foreground">
+        <p className="mt-10 border-t border-border pt-6 text-center text-sm leading-relaxed text-muted-foreground">
+          Verilen tüm hizmetler danışmanlık kapsamındadır, psikiyatrik müdahale
+          yapılmamaktadır.
+        </p>
+        <div className="mt-4 text-center text-sm text-muted-foreground">
           © {new Date().getFullYear()} Kenan Kübuç. Tüm hakları saklıdır.
         </div>
       </div>

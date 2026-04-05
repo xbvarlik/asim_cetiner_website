@@ -1,6 +1,6 @@
-import { ServicesListCards } from "@/components/feature/services-list-cards";
+import { ServicesListDetailedCards } from "@/components/feature/services-list-detailed-cards";
 
-export function ServicesList(): React.JSX.Element {
+export function ServicesListDetailed(): React.JSX.Element {
   return (
     <section className="bg-background py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -8,12 +8,14 @@ export function ServicesList(): React.JSX.Element {
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             Hizmetlerimiz
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg sm:leading-relaxed">
+          <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground sm:text-lg sm:leading-relaxed">
             İhtiyaçlarınıza uygun, kanıta dayalı danışmanlık hizmetleri sunuyorum.
+            Aşağıda her hizmet için kapsam ve odak noktalarını detaylı olarak
+            bulabilirsiniz.
           </p>
         </div>
 
-        <ServicesListCards />
+        <ServicesListDetailedCards />
       </div>
     </section>
   );

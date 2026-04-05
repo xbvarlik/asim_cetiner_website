@@ -22,7 +22,7 @@ export function MapView(): React.JSX.Element {
               <MapPin className="h-8 w-8" />
             </div>
             <p className="text-lg font-medium text-foreground">
-              123 Terapi Sokak, İstanbul, Türkiye
+              123 Örnek Sokak, İstanbul, Türkiye
             </p>
             <p className="text-sm text-muted-foreground">
               Harita görünümü yakında eklenecektir.
