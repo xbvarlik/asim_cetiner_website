@@ -20,8 +20,8 @@ const lora = Lora({
 
 export const metadata: Metadata = {
   title: {
-    default: "Kenan Kübuç | Psikolog",
-    template: "%s | Kenan Kübuç",
+    default: "Asım Çetiner | Psikolog",
+    template: "%s | Asım Çetiner",
   },
   description:
     "Profesyonel psikolojik danışmanlık. Anksiyete, depresyon, travma ve ilişki sorunları için uzman psikolog desteği — İstanbul ve online seanslar.",

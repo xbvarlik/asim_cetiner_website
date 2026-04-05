@@ -16,7 +16,7 @@ export type SeoLandingConfig = {
 export const SEO_LANDING_PAGES: Record<SeoLandingSlug, SeoLandingConfig> = {
   "istanbul-psikolog": {
     metadata: {
-      title: { absolute: "İstanbul Psikolog | Kenan Kübuç" },
+      title: { absolute: "İstanbul Psikolog | Asım Çetiner" },
       description:
         "İstanbul'da uzman psikolog desteği. Anksiyete, depresyon ve ilişki sorunları için yüz yüze ve online danışmanlık randevusu alın.",
     },
@@ -26,7 +26,7 @@ export const SEO_LANDING_PAGES: Record<SeoLandingSlug, SeoLandingConfig> = {
   },
   "cift-terapisi": {
     metadata: {
-      title: { absolute: "Çift Danışmanlığı İstanbul | Kenan Kübuç" },
+      title: { absolute: "Çift Danışmanlığı İstanbul | Asım Çetiner" },
       description:
         "İlişkinizi güçlendirmek için çift danışmanlığı ve ilişki danışmanlığı. İletişim, güven ve çatışma yönetimi konularında uzman destek.",
     },
@@ -36,7 +36,7 @@ export const SEO_LANDING_PAGES: Record<SeoLandingSlug, SeoLandingConfig> = {
   },
   "bilissel-davranisci-terapi": {
     metadata: {
-      title: { absolute: "Bilişsel Davranışçı Danışmanlık (BDT) | Kenan Kübuç" },
+      title: { absolute: "Bilişsel Davranışçı Danışmanlık (BDT) | Asım Çetiner" },
       description:
         "BDT ile anksiyete, depresyon ve takıntılı düşünce kalıplarına yönelik etkili danışmanlık. İstanbul'da uzman psikolog.",
     },
@@ -46,7 +46,7 @@ export const SEO_LANDING_PAGES: Record<SeoLandingSlug, SeoLandingConfig> = {
   },
   "uskudar-psikolog": {
     metadata: {
-      title: { absolute: "Üsküdar Psikolog | Kenan Kübuç" },
+      title: { absolute: "Üsküdar Psikolog | Asım Çetiner" },
       description:
         "Üsküdar ve Anadolu yakasında psikolog hizmeti. Randevu ve danışmanlık seçenekleri için iletişime geçin.",
     },
@@ -56,7 +56,7 @@ export const SEO_LANDING_PAGES: Record<SeoLandingSlug, SeoLandingConfig> = {
   },
   "besiktas-psikolog": {
     metadata: {
-      title: { absolute: "Beşiktaş Psikolog | Kenan Kübuç" },
+      title: { absolute: "Beşiktaş Psikolog | Asım Çetiner" },
       description:
         "Beşiktaş ve Avrupa yakasında profesyonel psikolojik danışmanlık. Stres, anksiyete ve yaşam koçluğu için randevu.",
     },
