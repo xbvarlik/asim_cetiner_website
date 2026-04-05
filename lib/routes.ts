@@ -3,6 +3,7 @@ export const ROUTES = {
   about: "/hakkimda",
   services: "/hizmetler",
   contact: "/iletisim",
+  faq: "/sikca-sorulan-sorular",
   blog: "/blog",
   seoIstanbulPsikolog: "/istanbul-psikolog",
   seoCiftTerapisi: "/cift-terapisi",

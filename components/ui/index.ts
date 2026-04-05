@@ -58,4 +58,11 @@ export {
 } from "./card";
 export { Popover, PopoverTrigger, PopoverContent } from "./popover";
 export { Calendar } from "./calendar";
+export {
+  AccordionRoot,
+  AccordionItem,
+  AccordionHeader,
+  AccordionTrigger,
+  AccordionPanel,
+} from "./accordion";
 

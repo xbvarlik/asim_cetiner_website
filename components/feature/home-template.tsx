@@ -1,6 +1,7 @@
 import { About } from "./about";
 // import { AreasOfWork } from "./areas-of-work"; // Unused on home for now (spec 016)
 import { ContactForm } from "./contact-form";
+import { FaqSection } from "./faq-section";
 import { Hero } from "./hero";
 import { MapView } from "./map-view";
 import { ServicesList } from "./services-list";
@@ -22,6 +23,7 @@ export function HomeTemplate({
       <About />
       {/* <AreasOfWork /> — unused for now; component file retained for possible reuse */}
       <ServicesList />
+      <FaqSection />
       <ContactForm offices={offices} />
       <MapView />
     </>
