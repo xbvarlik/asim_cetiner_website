@@ -4,6 +4,7 @@ export { Hero, DEFAULT_HERO_TITLE, DEFAULT_HERO_SUBTITLE } from "./hero";
 export { About } from "./about";
 export { AreasOfWork } from "./areas-of-work";
 export { ServicesList } from "./services-list";
+export { ServicesListDetailed } from "./services-list-detailed";
 export { ContactForm } from "./contact-form";
 export { MapView } from "./map-view";
 export { Footer } from "./footer";

@@ -6,7 +6,7 @@ const CLINICAL_AREAS = [
   "Anksiyete Bozuklukları",
   "Depresyon",
   "Travma ve TSSB",
-  "Çift Terapisi",
+  "Çift Danışmanlığı",
   "Aile Danışmanlığı",
   "Obsesif Kompulsif Bozukluk",
   "Panik Atak",

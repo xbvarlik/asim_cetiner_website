@@ -21,13 +21,13 @@ export function About(): React.JSX.Element {
               </p>
               <p>
                 Danışanlarımın kendilerini güvende ve anlaşılmış hissedecekleri
-                bir terapi ortamı oluşturmayı hedefliyorum. Her bireyin kendine
-                özgü bir hikayesi olduğuna inanıyor ve tedavi sürecini buna
+                bir danışmanlık ortamı oluşturmayı hedefliyorum. Her bireyin kendine
+                özgü bir hikayesi olduğuna inanıyor ve süreci buna
                 göre şekillendiriyorum.
               </p>
               <p>
-                Bilişsel Davranışçı Terapi, EMDR ve Şema Terapi gibi
-                kanıta dayalı yöntemlerle çalışarak danışanlarımın yaşam
+                Bilişsel davranışçı yaklaşım (BDT), EMDR ve şema temelli
+                teknikler gibi kanıta dayalı yöntemlerle çalışarak danışanlarımın yaşam
                 kalitelerini artırmalarına yardımcı oluyorum.
               </p>
             </div>

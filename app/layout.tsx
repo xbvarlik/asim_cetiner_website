@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s | Kenan Kübuç",
   },
   description:
-    "Profesyonel psikolojik danışmanlık ve terapi. Anksiyete, depresyon, travma ve ilişki sorunları için uzman psikolog desteği — İstanbul ve online seanslar.",
+    "Profesyonel psikolojik danışmanlık. Anksiyete, depresyon, travma ve ilişki sorunları için uzman psikolog desteği — İstanbul ve online seanslar.",
 };
 
 export default function RootLayout({

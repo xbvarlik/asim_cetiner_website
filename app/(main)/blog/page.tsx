@@ -7,7 +7,7 @@ import { listPublishedForPublic } from "@/server/services/blog-service";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Psikoloji, ruh sağlığı ve terapi üzerine yazılar ve güncel içerikler.",
+    "Psikoloji, ruh sağlığı ve danışmanlık üzerine yazılar ve güncel içerikler.",
 };
 
 export default async function BlogPage(): Promise<React.JSX.Element> {
