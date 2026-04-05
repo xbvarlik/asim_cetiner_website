@@ -44,7 +44,7 @@ export function AdminPagination({
   const next = page < totalPages ? page + 1 : null;
 
   return (
-    <div className="mt-4 flex items-center justify-end gap-2">
+    <div className="mt-4 flex w-full min-w-0 flex-wrap items-center justify-end gap-2">
       {prev != null ? (
         <Link
           href={adminListHref(pathname, { ...query, page: String(prev) })}

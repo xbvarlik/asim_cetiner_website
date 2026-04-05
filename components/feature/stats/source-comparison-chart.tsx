@@ -117,12 +117,12 @@ export function SourceComparisonChart({
 
   if (allSources.length === 0) {
     return (
-      <Card>
+      <Card className="min-w-0 overflow-hidden">
         <CardHeader>
           <CardTitle>Kaynak karşılaştırması</CardTitle>
           <CardDescription>Günlük ziyaret ve başvuru eğrileri</CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="min-w-0">
           <StatsEmptyState />
         </CardContent>
       </Card>
@@ -130,13 +130,13 @@ export function SourceComparisonChart({
   }
 
   return (
-    <Card>
+    <Card className="min-w-0 overflow-hidden">
       <CardHeader>
         <CardTitle>Kaynak karşılaştırması</CardTitle>
         <CardDescription>Günlük ziyaret ve başvuru eğrileri</CardDescription>
       </CardHeader>
-      <CardContent className="flex flex-col gap-4">
-        <fieldset className="flex flex-wrap gap-3 text-sm">
+      <CardContent className="flex min-w-0 flex-col gap-4">
+        <fieldset className="flex min-w-0 flex-wrap gap-3 text-sm">
           <legend className="text-muted-foreground mb-2 w-full font-medium">
             Kaynaklar
           </legend>
@@ -158,10 +158,11 @@ export function SourceComparisonChart({
           ))}
         </fieldset>
 
-        <div className="h-[380px] w-full min-w-0">
+        <div className="h-[380px] w-full min-w-0 overflow-x-auto">
           {chartData.length === 0 || selected.size === 0 ? (
             <StatsEmptyState className="min-h-[340px]" />
           ) : (
+            <div className="h-full min-w-[300px]">
             <ResponsiveContainer width="100%" height="100%">
               <ComposedChart data={chartData} margin={{ top: 8, right: 16, left: 0, bottom: 8 }}>
                 <CartesianGrid stroke={GRID} strokeDasharray="3 3" vertical={false} />
@@ -189,6 +190,7 @@ export function SourceComparisonChart({
                 ))}
               </ComposedChart>
             </ResponsiveContainer>
+            </div>
           )}
         </div>
       </CardContent>

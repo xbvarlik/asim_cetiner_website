@@ -36,15 +36,17 @@ export function VisitorStatsChart({
   }));
 
   return (
-    <Card>
+    <Card className="min-w-0 overflow-hidden">
       <CardHeader>
         <CardTitle>Kaynağa göre ziyaretler</CardTitle>
         <CardDescription>TrafficLog kayıtlarına göre dağılım</CardDescription>
       </CardHeader>
-      <CardContent className="h-[360px]">
+      <CardContent className="h-[360px] min-w-0 w-full p-2 sm:p-6">
         {data.length === 0 ? (
           <StatsEmptyState className="min-h-[320px]" />
         ) : (
+          <div className="h-full w-full min-w-0 overflow-x-auto">
+            <div className="mx-auto h-full min-w-[280px] max-w-full">
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
@@ -74,6 +76,8 @@ export function VisitorStatsChart({
               <Legend />
             </PieChart>
           </ResponsiveContainer>
+            </div>
+          </div>
         )}
       </CardContent>
     </Card>
