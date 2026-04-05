@@ -1,4 +1,4 @@
-﻿---
+---
 description: Project Development Guidelines
 globs: ["**/*"]
 alwaysApply: true
@@ -29,6 +29,8 @@ Auto-generated from all feature plans. Last updated: 2026-04-05
 - N/A (presentation-only) (015-header-services-cta-layout)
 - TypeScript 5.x (strict) + Next.js 16 (App Router), React 19, Tailwind CSS 4, Shadcn/UI (`@base-ui`), Framer Motion 12, lucide-react (016-services-detail-routing-legal)
 - N/A (static marketing content; no schema changes) (016-services-detail-routing-legal)
+- TypeScript 5.x (strict) + Next.js 16 (App Router), React 19, Tailwind CSS 4, Shadcn/UI (`@base-ui` primitives), lucide-react (017-faq-section-pages)
+- N/A (static FAQ content; no schema changes) (017-faq-section-pages)
 
 ## Project Structure
 
@@ -47,9 +49,8 @@ npm run dev; npm run lint
 TypeScript 5.x (strict): Follow standard conventions; Next.js / React patterns per constitution.
 
 ## Recent Changes
+- 017-faq-section-pages: Added TypeScript 5.x (strict) + Next.js 16 (App Router), React 19, Tailwind CSS 4, Shadcn/UI (`@base-ui` primitives), lucide-react
 - 016-services-detail-routing-legal: Added TypeScript 5.x (strict) + Next.js 16 (App Router), React 19, Tailwind CSS 4, Shadcn/UI (`@base-ui`), Framer Motion 12, lucide-react
-- 015-header-services-cta-layout: Added TypeScript 5.x (strict), Node 20+ + Next.js 16 (App Router), React 19, Tailwind CSS 4, Shadcn/UI (`@base-ui` primitives), lucide-react, Framer Motion (services cards only)
-- 014-mobile-bottom-cta: Added TypeScript 5.x (strict), Node 20+ + Next.js 16 (App Router), React 19, Tailwind CSS 4 (`@import "tailwindcss"` + `@theme inline` in `app/globals.css`), Shadcn/UI (`@base-ui` primitives), lucide-react
 
 
 <!-- MANUAL ADDITIONS START -->

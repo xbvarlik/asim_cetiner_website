@@ -16,6 +16,8 @@ export { ShareModal } from "./share-modal";
 export type { ShareModalProps } from "./share-modal";
 export { HomeTemplate } from "./home-template";
 export type { HomeTemplateProps } from "./home-template";
+export { FaqSection } from "./faq-section";
+export type { FaqSectionProps } from "./faq-section";
 export { AdminAuthProvider, useAdminAuth } from "./admin-auth-provider";
 export type { AdminAuthState } from "./admin-auth-provider";
 export { AdminShell } from "./admin-shell";

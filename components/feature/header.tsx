@@ -18,6 +18,7 @@ import type { NavItem } from "@/types";
 const STATIC_NAV_REST: NavItem[] = [
   { label: "Hakkımda", href: ROUTES.about },
   { label: "Hizmetler", href: ROUTES.services },
+  { label: "SSS", href: ROUTES.faq },
   { label: "İletişim", href: ROUTES.contact },
   { label: "Blog", href: ROUTES.blog },
 ];

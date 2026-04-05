@@ -12,6 +12,7 @@ const SITE_LINKS: NavItem[] = [
   { label: "Ana Sayfa", href: ROUTES.home },
   { label: "Hakkımda", href: ROUTES.about },
   { label: "Hizmetler", href: ROUTES.services },
+  { label: "SSS", href: ROUTES.faq },
   { label: "Blog", href: ROUTES.blog },
   { label: "İletişim", href: ROUTES.contact },
 ];
