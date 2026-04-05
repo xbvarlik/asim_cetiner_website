@@ -31,16 +31,16 @@ function formatPercent(p: number | null): string {
 
 export function ConversionTable({ rows }: ConversionTableProps): React.JSX.Element {
   return (
-    <Card>
+    <Card className="min-w-0 overflow-hidden">
       <CardHeader>
         <CardTitle>Dönüşüm özeti</CardTitle>
         <CardDescription>Kaynak bazlı ziyaret ve başvuru</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="min-w-0">
         {rows.length === 0 ? (
           <StatsEmptyState />
         ) : (
-          <div className="overflow-x-auto rounded-lg border border-border">
+          <div className="max-w-full min-w-0 overflow-x-auto rounded-lg border border-border">
             <Table>
               <TableHeader>
                 <TableRow>

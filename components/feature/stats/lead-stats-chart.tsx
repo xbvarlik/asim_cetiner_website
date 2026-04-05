@@ -45,16 +45,18 @@ export function LeadStatsChart({
   }));
 
   return (
-    <div className="grid gap-4 lg:grid-cols-2">
-      <Card>
+    <div className="grid min-w-0 gap-4 lg:grid-cols-2">
+      <Card className="min-w-0 overflow-hidden">
         <CardHeader>
           <CardTitle>Kaynağa göre başvurular</CardTitle>
           <CardDescription>UTM / kaynak alanına göre dağılım</CardDescription>
         </CardHeader>
-        <CardContent className="h-[320px]">
+        <CardContent className="h-[320px] min-w-0 w-full p-2 sm:p-6">
           {sourceData.length === 0 ? (
             <StatsEmptyState className="min-h-[280px]" />
           ) : (
+            <div className="h-full w-full min-w-0 overflow-x-auto">
+              <div className="h-full min-w-[260px]">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={sourceData} margin={{ top: 8, right: 8, left: 0, bottom: 8 }}>
                 <CartesianGrid stroke={GRID} strokeDasharray="3 3" vertical={false} />
@@ -71,19 +73,23 @@ export function LeadStatsChart({
                 <Bar dataKey="count" name="Başvuru" fill={PRIMARY} radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
+              </div>
+            </div>
           )}
         </CardContent>
       </Card>
 
-      <Card>
+      <Card className="min-w-0 overflow-hidden">
         <CardHeader>
           <CardTitle>Ofise göre başvurular</CardTitle>
           <CardDescription>Seçilen aralıktaki ofis dağılımı</CardDescription>
         </CardHeader>
-        <CardContent className="h-[320px]">
+        <CardContent className="h-[320px] min-w-0 w-full p-2 sm:p-6">
           {officeData.length === 0 ? (
             <StatsEmptyState className="min-h-[280px]" />
           ) : (
+            <div className="h-full w-full min-w-0 overflow-x-auto">
+              <div className="h-full min-w-[260px]">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={officeData} margin={{ top: 8, right: 8, left: 0, bottom: 8 }}>
                 <CartesianGrid stroke={GRID} strokeDasharray="3 3" vertical={false} />
@@ -100,6 +106,8 @@ export function LeadStatsChart({
                 <Bar dataKey="count" name="Başvuru" fill={PRIMARY} radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
+              </div>
+            </div>
           )}
         </CardContent>
       </Card>

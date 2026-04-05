@@ -54,6 +54,19 @@ export function AdminOfficeTable({
   const [deleteId, setDeleteId] = useState<number | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [editing, setEditing] = useState<OfficeRowDto | null>(null);
+  const [expandedIds, setExpandedIds] = useState<Set<number>>(() => new Set());
+
+  function toggleExpand(id: number): void {
+    setExpandedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      return next;
+    });
+  }
 
   const q: Record<string, string | undefined> = {
     page: String(query.page),
@@ -108,7 +121,7 @@ export function AdminOfficeTable({
 
   return (
     <div>
-      <div className="mb-4 flex justify-end">
+      <div className="mb-4 flex w-full min-w-0 justify-end">
         <Button
           type="button"
           size="sm"
@@ -121,6 +134,87 @@ export function AdminOfficeTable({
         </Button>
       </div>
 
+      <div className="md:hidden space-y-3">
+        {rows.length === 0 ? (
+          <p className="text-muted-foreground py-6 text-center text-sm">Kayıt yok.</p>
+        ) : (
+          rows.map((row) => {
+            const open = expandedIds.has(row.id);
+            return (
+              <div
+                key={row.id}
+                className="bg-card border-border space-y-3 rounded-xl border p-4 shadow-sm"
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <p className="min-w-0 flex-1 font-medium">{row.name}</p>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    className="shrink-0"
+                    aria-expanded={open}
+                    onClick={() => {
+                      toggleExpand(row.id);
+                    }}
+                  >
+                    {open ? "Gizle" : "Detay"}
+                  </Button>
+                </div>
+                <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    className="w-full sm:w-auto"
+                    onClick={() => {
+                      setEditing(row);
+                      setModalOpen(true);
+                    }}
+                  >
+                    Düzenle
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="destructive"
+                    size="sm"
+                    className="w-full sm:w-auto"
+                    onClick={() => {
+                      setDeleteId(row.id);
+                    }}
+                  >
+                    Sil
+                  </Button>
+                </div>
+                {open ? (
+                  <div className="border-border text-sm space-y-2 border-t pt-3">
+                    <div>
+                      <p className="text-muted-foreground text-xs">Adres</p>
+                      <p className="whitespace-pre-wrap break-words">{row.address}</p>
+                    </div>
+                    <div>
+                      <p className="text-muted-foreground text-xs">Harita</p>
+                      {row.mapsLink ? (
+                        <a
+                          href={row.mapsLink}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-primary break-all underline"
+                        >
+                          {row.mapsLink}
+                        </a>
+                      ) : (
+                        <span>—</span>
+                      )}
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            );
+          })
+        )}
+      </div>
+
+      <div className="hidden min-w-0 md:block md:overflow-x-auto">
       <Table>
         <TableHeader>
           <TableRow>
@@ -193,6 +287,7 @@ export function AdminOfficeTable({
           )}
         </TableBody>
       </Table>
+      </div>
 
       <AdminPagination
         pathname={ROUTES.admin.offices}
@@ -202,7 +297,7 @@ export function AdminOfficeTable({
       />
 
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent className="sm:max-w-md">
+        <DialogContent className="w-[calc(100vw-2rem)] max-w-md sm:w-full">
           <DialogHeader>
             <DialogTitle>
               {editing ? "Ofisi düzenle" : "Yeni ofis"}

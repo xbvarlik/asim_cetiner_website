@@ -58,6 +58,19 @@ export function AdminBlogTable({
   const [deleteId, setDeleteId] = useState<number | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [editing, setEditing] = useState<BlogRowDto | null>(null);
+  const [expandedIds, setExpandedIds] = useState<Set<number>>(() => new Set());
+
+  function toggleExpand(id: number): void {
+    setExpandedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      return next;
+    });
+  }
 
   const q: Record<string, string | undefined> = {
     page: String(query.page),
@@ -105,7 +118,7 @@ export function AdminBlogTable({
 
   return (
     <div>
-      <div className="mb-4 flex justify-end">
+      <div className="mb-4 flex w-full min-w-0 justify-end">
         <Button
           type="button"
           size="sm"
@@ -118,6 +131,88 @@ export function AdminBlogTable({
         </Button>
       </div>
 
+      <div className="md:hidden space-y-3">
+        {rows.length === 0 ? (
+          <p className="text-muted-foreground py-6 text-center text-sm">Kayıt yok.</p>
+        ) : (
+          rows.map((row) => {
+            const open = expandedIds.has(row.id);
+            return (
+              <div
+                key={row.id}
+                className="bg-card border-border space-y-3 rounded-xl border p-4 shadow-sm"
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <p className="min-w-0 flex-1 font-medium">{row.title}</p>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    className="shrink-0"
+                    aria-expanded={open}
+                    onClick={() => {
+                      toggleExpand(row.id);
+                    }}
+                  >
+                    {open ? "Gizle" : "Detay"}
+                  </Button>
+                </div>
+                <p className="text-sm">
+                  <span
+                    className={
+                      row.isActive
+                        ? "text-green-700 dark:text-green-400"
+                        : "text-muted-foreground"
+                    }
+                  >
+                    {row.isActive ? "Yayında" : "Taslak"}
+                  </span>
+                </p>
+                <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    className="w-full sm:w-auto"
+                    onClick={() => {
+                      setEditing(row);
+                      setModalOpen(true);
+                    }}
+                  >
+                    Düzenle
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="destructive"
+                    size="sm"
+                    className="w-full sm:w-auto"
+                    onClick={() => {
+                      setDeleteId(row.id);
+                    }}
+                  >
+                    Sil
+                  </Button>
+                </div>
+                {open ? (
+                  <div className="border-border text-sm space-y-2 border-t pt-3">
+                    <p className="text-muted-foreground text-xs">
+                      Oluşturulma: {new Date(row.createdAt).toLocaleString("tr-TR")}
+                    </p>
+                    <p className="text-muted-foreground text-xs">
+                      Güncelleme: {new Date(row.updatedAt).toLocaleString("tr-TR")}
+                    </p>
+                    <p className="text-foreground line-clamp-6 whitespace-pre-wrap break-words">
+                      {row.content}
+                    </p>
+                  </div>
+                ) : null}
+              </div>
+            );
+          })
+        )}
+      </div>
+
+      <div className="hidden min-w-0 md:block md:overflow-x-auto">
       <Table>
         <TableHeader>
           <TableRow>
@@ -213,6 +308,7 @@ export function AdminBlogTable({
           )}
         </TableBody>
       </Table>
+      </div>
 
       <AdminPagination
         pathname={ROUTES.admin.blog}
@@ -222,7 +318,7 @@ export function AdminBlogTable({
       />
 
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-lg">
+        <DialogContent className="max-h-[90vh] w-[calc(100vw-2rem)] max-w-lg overflow-y-auto sm:w-full">
           <DialogHeader>
             <DialogTitle>
               {editing ? "Yazıyı düzenle" : "Yeni yazı"}

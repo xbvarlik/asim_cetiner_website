@@ -54,6 +54,19 @@ export function AdminLeadsTable({
   const router = useRouter();
   const [pending, startTransition] = useTransition();
   const [deleteId, setDeleteId] = useState<string | null>(null);
+  const [expandedIds, setExpandedIds] = useState<Set<string>>(() => new Set());
+
+  function toggleExpand(id: string): void {
+    setExpandedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      return next;
+    });
+  }
 
   const q: Record<string, string | undefined> = {
     page: String(query.page),
@@ -102,7 +115,7 @@ export function AdminLeadsTable({
     <div>
       <form
         method="get"
-        className="mb-4 flex flex-wrap items-end gap-3"
+        className="mb-4 flex w-full min-w-0 max-w-full flex-wrap items-end gap-3"
         action={ROUTES.admin.leads}
       >
         <input type="hidden" name="page" value="1" />
@@ -117,7 +130,7 @@ export function AdminLeadsTable({
             id="statusId"
             name="statusId"
             defaultValue={query.statusId ?? ""}
-            className="border-input bg-background h-9 rounded-md border px-2 text-sm"
+            className="border-input bg-background h-9 max-w-full min-w-0 rounded-md border px-2 text-sm"
           >
             <option value="">Tümü</option>
             {statuses.map((s) => (
@@ -135,7 +148,7 @@ export function AdminLeadsTable({
             id="officeId"
             name="officeId"
             defaultValue={query.officeId ?? ""}
-            className="border-input bg-background h-9 rounded-md border px-2 text-sm"
+            className="border-input bg-background h-9 max-w-full min-w-0 rounded-md border px-2 text-sm"
           >
             <option value="">Tümü</option>
             {offices.map((o) => (
@@ -156,6 +169,98 @@ export function AdminLeadsTable({
         </Link>
       </form>
 
+      <div className="md:hidden space-y-3">
+        {rows.length === 0 ? (
+          <p className="text-muted-foreground py-6 text-center text-sm">Kayıt yok.</p>
+        ) : (
+          rows.map((row) => {
+            const open = expandedIds.has(row.id);
+            return (
+              <div
+                key={row.id}
+                className="bg-card border-border space-y-3 rounded-xl border p-4 shadow-sm"
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <p className="min-w-0 flex-1 font-medium">{row.name}</p>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    className="shrink-0"
+                    aria-expanded={open}
+                    onClick={() => {
+                      toggleExpand(row.id);
+                    }}
+                  >
+                    {open ? "Gizle" : "Detay"}
+                  </Button>
+                </div>
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                  <div className="min-w-0 flex-1">
+                    <p className="text-muted-foreground text-xs">Durum</p>
+                    <select
+                      className="border-input bg-background mt-1 block h-9 w-full max-w-full rounded-md border px-2 text-sm"
+                      value={String(row.status.id)}
+                      disabled={pending}
+                      aria-label={`${row.name} durumu`}
+                      onChange={(e) => {
+                        updateStatus(row.id, e.target.value);
+                      }}
+                    >
+                      {statuses.map((s) => (
+                        <option key={s.id} value={s.id}>
+                          {s.name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <Button
+                    type="button"
+                    variant="destructive"
+                    size="sm"
+                    className="w-full shrink-0 sm:w-auto"
+                    onClick={() => {
+                      setDeleteId(row.id);
+                    }}
+                  >
+                    Sil
+                  </Button>
+                </div>
+                {open ? (
+                  <dl className="border-border text-sm space-y-2 border-t pt-3">
+                    <div>
+                      <dt className="text-muted-foreground text-xs">E-posta</dt>
+                      <dd className="break-all">{row.email}</dd>
+                    </div>
+                    <div>
+                      <dt className="text-muted-foreground text-xs">Telefon</dt>
+                      <dd>{row.phoneNumber}</dd>
+                    </div>
+                    <div>
+                      <dt className="text-muted-foreground text-xs">Kaynak</dt>
+                      <dd className="break-all">{row.utmSource ?? "—"}</dd>
+                    </div>
+                    <div>
+                      <dt className="text-muted-foreground text-xs">Ofis</dt>
+                      <dd>{row.office.name}</dd>
+                    </div>
+                    <div>
+                      <dt className="text-muted-foreground text-xs">Oluşturulma</dt>
+                      <dd>{new Date(row.createdAt).toLocaleString("tr-TR")}</dd>
+                    </div>
+                    <div>
+                      <dt className="text-muted-foreground text-xs">Güncelleme</dt>
+                      <dd>{new Date(row.updatedAt).toLocaleString("tr-TR")}</dd>
+                    </div>
+                  </dl>
+                ) : null}
+              </div>
+            );
+          })
+        )}
+      </div>
+
+      <div className="hidden min-w-0 md:block md:overflow-x-auto">
       <Table>
         <TableHeader>
           <TableRow>
@@ -254,6 +359,7 @@ export function AdminLeadsTable({
           )}
         </TableBody>
       </Table>
+      </div>
 
       <AdminPagination
         pathname={ROUTES.admin.leads}

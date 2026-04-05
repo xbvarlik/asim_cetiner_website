@@ -46,7 +46,7 @@ export function AdminChangePasswordModal(): React.JSX.Element {
         Şifre değiştir
       </Button>
       <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="w-[calc(100vw-2rem)] max-w-md sm:w-full">
         <DialogHeader>
           <DialogTitle>Şifre değiştir</DialogTitle>
         </DialogHeader>
