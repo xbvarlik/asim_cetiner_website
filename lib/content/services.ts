@@ -1,107 +1,207 @@
 /**
- * Public-facing service catalog for marketing sections.
- * Icons are mapped by `ServiceId` in feature components.
+ * Public-facing service pillars from docs/info.md (Aile, Bireysel, Çift).
+ * Icons mapped by `ServicePillarId` in feature components.
  */
 
-export type ServiceId =
-  | "bireysel"
-  | "cift"
-  | "aile"
-  | "travma"
-  | "stres"
-  | "online";
+export type ServicePillarId = "aile" | "bireysel" | "cift";
 
-export type PublicServiceOffering = {
-  id: ServiceId;
-  title: string;
-  shortDescription: string;
-  detailedDescription: string;
-  highlights: readonly string[];
+export type ServicePillarSection = {
+  heading: string;
+  items: readonly string[];
 };
 
-export const PUBLIC_SERVICES: readonly PublicServiceOffering[] = [
+export type ServicePillar = {
+  id: ServicePillarId;
+  title: string;
+  intro: string;
+  /** Compact blurb for home cards */
+  shortDescription: string;
+  sections: readonly ServicePillarSection[];
+};
+
+export const PUBLIC_SERVICE_PILLARS: readonly ServicePillar[] = [
+  {
+    id: "aile",
+    title: "Aile Danışmanlığı",
+    intro:
+      "Aile danışmanlığı; bireyler arası ilişkileri güçlendirmeyi, iletişimi düzenlemeyi ve sistem içindeki sorunları anlamlandırmayı hedefleyen geniş bir hizmet alanına sahiptir.",
+    shortDescription:
+      "Aile içi iletişimi güçlendirmek, rolleri ve sınırları netleştirmek ve birlikte yaşanan zorlukları anlamlandırmak için sistemik bir çerçevede çalışıyorum.",
+    sections: [
+      {
+        heading: "İlişki ve İletişim Sorunları",
+        items: [
+          "Eşler arası iletişim problemleri",
+          "Çatışma çözme becerileri",
+          "Duyguların ifade edilmesi ve anlaşılması",
+          "Güven sorunları",
+        ],
+      },
+      {
+        heading: "Evlilik ve Çift Danışmanlığı",
+        items: [
+          "Evlilik öncesi danışmanlık",
+          "Evlilik içi uyum sorunları",
+          "Aldatma / sadakat problemleri",
+          "Boşanma süreci ve sonrası uyum",
+        ],
+      },
+      {
+        heading: "Ebeveynlik Danışmanlığı",
+        items: [
+          "Anne-baba tutumları",
+          "Disiplin ve sınır koyma",
+          "Çocukla sağlıklı bağ kurma",
+          "Ergenlik dönemi sorunları",
+        ],
+      },
+      {
+        heading: "Aile İçi Roller ve Dinamikler",
+        items: [
+          "Rol karmaşası (anne-baba-çocuk sınırları)",
+          "Aile içi güç dengeleri",
+          "Bağımlı / kopuk ilişkiler",
+          "Kuşaklar arası aktarım",
+        ],
+      },
+      {
+        heading: "Kriz ve Travma Durumları",
+        items: [
+          "Kayıp ve yas süreçleri",
+          "Hastalık, kaza, travma sonrası uyum",
+          "Aile içi ani değişimlere adaptasyon",
+        ],
+      },
+      {
+        heading: "Psikososyal Sorunlar",
+        items: [
+          "Bağımlılık (madde, alkol vb.)",
+          "Ekonomik stresin ilişkilere etkisi",
+          "Göç, taşınma ve uyum sorunları",
+        ],
+      },
+      {
+        heading: "Çocuk ve Ergenle İlgili Sorunlar",
+        items: [
+          "Davranış problemleri",
+          "Okul uyum sorunları",
+          "Dikkat, kaygı ve duygusal problemler",
+          "Aile-çocuk çatışmaları",
+        ],
+      },
+      {
+        heading: "Boşanma ve Yeniden Yapılanma",
+        items: [
+          "Sağlıklı ayrılık süreci",
+          "Çocukların etkilenmesinin azaltılması",
+          "Yeniden evlilik ve uyum süreçleri",
+        ],
+      },
+    ],
+  },
   {
     id: "bireysel",
     title: "Bireysel Danışmanlık",
+    intro:
+      "Yetişkin çalışma alanları genellikle bireyin duygusal, bilişsel ve ilişkisel işlevselliğini kapsayan geniş bir çerçevede ele alınır.",
     shortDescription:
-      "Kişisel zorluklarınızla başa çıkmanız için birebir danışmanlık seansları. Bilişsel davranışçı yaklaşım ve kanıta dayalı yöntemler.",
-    detailedDescription:
-      "Yaşamınızdaki zorlayıcı duygu ve düşünce örüntüleriyle birlikte çalışır; hedeflerinizi netleştirip adım adım ilerlemenize yardımcı olurum. Seanslar gizlilik ve güven ilkeleriyle, ihtiyacınıza göre yapılandırılır.",
-    highlights: [
-      "Birebir görüşmelerle kişiselleştirilmiş çalışma planı",
-      "BDT ve kanıta dayalı tekniklerle duygu ve düşünce düzenleme",
-      "Anksiyete, depresyon ve stresle başa çıkma becerileri",
-      "Yüz yüze veya online esnek seans seçenekleri",
+      "Duygudurum, kaygı, travma, ilişki ve yaşam olaylarına bağlı zorluklarda bireysel danışmanlıkla yanınızdayım.",
+    sections: [
+      {
+        heading: "Çalışma alanları",
+        items: [
+          "Duygudurum Bozuklukları",
+          "Kaygı Bozuklukları",
+          "Travma ve İlişkili Sorunlar",
+          "Kişilik Örüntüleri ve Kişilik Bozuklukları",
+          "İlişki ve Bağlanma Sorunları",
+          "Özgüven ve Benlik Algısı",
+          "Stres ve Yaşam Olaylarıyla Başa Çıkma",
+          "Yas ve Kayıp Süreçleri",
+          "Psikosomatik ve Bedensel Belirtiler",
+          "Bağımlılık ve Dürtü Kontrol Sorunları",
+          "Cinsel İşlev ve Cinsellik ile İlgili Sorunlar",
+          "Öfke Yönetimi",
+          "Obsesif-kompulsif bozukluk",
+          "Dikkat eksikliği ve hiperaktivite",
+        ],
+      },
     ],
   },
   {
     id: "cift",
     title: "Çift Danışmanlığı",
+    intro: "Çift Danışmanlığı Hizmet Alanları:",
     shortDescription:
-      "İlişkinizdeki iletişim sorunlarını çözmek ve bağınızı güçlendirmek için profesyonel çift danışmanlığı.",
-    detailedDescription:
-      "Çiftlerin güven, yakınlık ve çatışma yönetimi konularında daha sağlıklı kalıplar geliştirmesine odaklanırım. Tarafların duygu ve ihtiyaçlarını güvenli bir çerçevede ifade etmesini desteklerim.",
-    highlights: [
-      "İletişim kalıplarını gözden geçirme ve yapılandırılmış diyalog",
-      "Çatışma anlarında denge ve çözüm odaklı çalışma",
-      "Yakınlık ve güveni güçlendirme hedefleri",
-      "İlişkinize özel ortak hedefler belirleme",
-    ],
-  },
-  {
-    id: "aile",
-    title: "Aile Danışmanlığı",
-    shortDescription:
-      "Aile içi dinamikleri iyileştirmek ve sağlıklı iletişim kalıpları oluşturmak için aile danışmanlığı.",
-    detailedDescription:
-      "Aile üyeleri arasındaki gerilimleri anlamlandırıp, herkesin duyulduğu bir iletişim ortamı kurmayı hedeflerim. Çocuk, ergen ve ebeveyn rolleri arasındaki dengeyi birlikte ele alırız.",
-    highlights: [
-      "Aile içi roller ve sınırlar üzerinde çalışma",
-      "Çocuk ve ergenle ilgili uyum ve disiplin konularında rehberlik",
-      "Çok kuşaklı iletişimi güçlendirme",
-      "Ortak aile hedefleri ve iş birliği becerileri",
-    ],
-  },
-  {
-    id: "travma",
-    title: "Travma Danışmanlığı",
-    shortDescription:
-      "EMDR ve travma odaklı bilişsel davranışçı yaklaşım ile geçmiş travmaların etkilerini azaltmaya yönelik destek.",
-    detailedDescription:
-      "Travmatik deneyimlerin günlük yaşam, ilişkiler ve beden üzerindeki etkilerini güvenli bir tempoda ele alırız. Kanıta dayalı yöntemlerle duygu düzenleme ve anlamlandırma süreçlerini desteklerim.",
-    highlights: [
-      "Travma odaklı değerlendirme ve güvenli çerçeve",
-      "EMDR ve travma odaklı BDT tekniklerine yönelik bilgilendirme",
-      "Tetikleyiciler ve kaçınma kalıpları üzerinde çalışma",
-      "İlerlemenize uygun adım adım tempo",
-    ],
-  },
-  {
-    id: "stres",
-    title: "Stres Yönetimi",
-    shortDescription:
-      "İş ve günlük yaşam stresini yönetmek için pratik stratejiler ve gevşeme teknikleri.",
-    detailedDescription:
-      "Stres kaynaklarınızı birlikte haritalayıp, sizi zorlayan durumlarda daha dayanıklı kalmanız için beceri seti geliştiririz. Uyku, odaklanma ve iş-yaşam dengesi konularında somut araçlar sunarım.",
-    highlights: [
-      "Stres tetikleyicilerini fark etme ve önceliklendirme",
-      "Nefes, gevşeme ve mindfulness temelli pratikler",
-      "Zaman ve enerji yönetimi ipuçları",
-      "İş ve özel yaşamda sınır koyma becerileri",
-    ],
-  },
-  {
-    id: "online",
-    title: "Online Danışmanlık",
-    shortDescription:
-      "Evinizin konforunda, güvenli video görüşme ile profesyonel psikolojik destek.",
-    detailedDescription:
-      "Şehir dışında veya yoğun program nedeniyle yüz yüze gelmek zor olduğunda, güvenli ve gizlilik uyumlu video platformları üzerinden aynı kalitede danışmanlık sunuyorum. Teknik gereksinimler konusunda yönlendirme sağlarım.",
-    highlights: [
-      "Şifreli ve gizlilik odaklı video görüşmeler",
-      "Esnek saat seçenekleri",
-      "Yüz yüze süreçle uyumlu içerik ve takip",
-      "Ev ortamında güvenli ve rahat bir çerçeve",
+      "İletişim, yakınlık, güven ve yaşam geçişlerinde çiftlere özel; çatışma yönetimi ve ilişki doyumunu destekleyen danışmanlık.",
+    sections: [
+      {
+        heading: "İletişim ve Çatışma Yönetimi",
+        items: [
+          "İletişim problemleri",
+          "Sık tekrar eden tartışmalar",
+          "Sağlıklı ifade ve dinleme becerileri",
+          "Çatışma çözme yöntemleri",
+        ],
+      },
+      {
+        heading: "İlişki Doyumu ve Yakınlık",
+        items: [
+          "Duygusal uzaklaşma",
+          "Yakınlık ve bağ kurma güçlükleri",
+          "İlişkide tatmin ve anlam arayışı",
+        ],
+      },
+      {
+        heading: "Güven ve Sadakat Sorunları",
+        items: [
+          "Aldatma / güven ihlalleri",
+          "Kıskançlık",
+          "Güvenin yeniden inşası",
+        ],
+      },
+      {
+        heading: "Cinsel Yaşam ve Uyum",
+        items: [
+          "Cinsel isteksizlik",
+          "Cinsel uyumsuzluk",
+          "Performans kaygısı",
+          "Cinsellikte iletişim problemleri",
+        ],
+      },
+      {
+        heading: "Bağlanma ve İlişki Örüntüleri",
+        items: [
+          "Terk edilme korkusu",
+          "Yakınlık–mesafe dengesi",
+          "Tekrarlayan ilişki döngüleri",
+        ],
+      },
+      {
+        heading: "Rol ve Sorumluluk Dengesi",
+        items: [
+          "İlişkide beklenti farklılıkları",
+          "Sorumluluk paylaşımı",
+          "Güç ve kontrol dengesi",
+        ],
+      },
+      {
+        heading: "Yaşam Dönemleri ve Geçişler",
+        items: [
+          "Evlilik öncesi danışmanlık",
+          "Evliliğe uyum süreci",
+          "Çocuk sahibi olma / ebeveynliğe geçiş",
+          "Taşınma, iş değişimi gibi yaşam olayları",
+        ],
+      },
+      {
+        heading: "Kriz ve Ayrılık Süreçleri",
+        items: [
+          "Ayrılık / boşanma süreci",
+          "Ayrılık sonrası uyum",
+          "İlişkiyi sürdürme ya da sonlandırma kararı",
+        ],
+      },
     ],
   },
 ] as const;

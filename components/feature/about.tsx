@@ -15,20 +15,27 @@ export function About(): React.JSX.Element {
             </h2>
             <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
               <p>
-                Merhaba, ben Asım Çetiner. Klinik psikolog olarak yılların
-                deneyimiyle bireylere, çiftlere ve ailelere profesyonel
-                psikolojik destek sunuyorum.
+                Merhaba, ben Asım Çetiner. Lisans eğitimimi tam burslu olarak
+                Doğuş Üniversitesi %100 İngilizce Psikoloji Bölümü’nde onur
+                derecesiyle tamamladım. Lisans bitirme projemde, derslerde verilen
+                örneklerin öğrencilerin güncel yaşamlarında karşılık bulan olgular
+                arasından seçilmesinin öğrenme üzerindeki etkisini inceleyen bir
+                deney araştırması ile tamamladım.
               </p>
               <p>
-                Danışanlarımın kendilerini güvende ve anlaşılmış hissedecekleri
-                bir danışmanlık ortamı oluşturmayı hedefliyorum. Her bireyin kendine
-                özgü bir hikayesi olduğuna inanıyor ve süreci buna
-                göre şekillendiriyorum.
+                Yüksek lisans eğitimimi ise Arel Üniversitesi Klinik Psikoloji
+                programında, “Dikkat Eksikliği ve Hiperaktivite Bozukluğu ile
+                ilişkili değişkenlerin incelenmesi” başlıklı uzmanlık çalışmamla
+                ve yüksek onur derecesiyle tamamladım.
               </p>
               <p>
-                Bilişsel davranışçı yaklaşım (BDT), EMDR ve şema temelli
-                teknikler gibi kanıta dayalı yöntemlerle çalışarak danışanlarımın yaşam
-                kalitelerini artırmalarına yardımcı oluyorum.
+                Akademik çalışmalarımın yanı sıra, Teknofest Psikoloji alanında
+                panik bozukluk tanısı almış bireylerin kendi kendine yardım
+                becerilerini desteklemeye yönelik bir çalışmada proje yöneticisi
+                olarak görev aldım. Ayrıca İstanbul Erenköy Ruh ve Sinir
+                Hastalıkları Eğitim ve Araştırma Hastanesi, Koç Üniversitesi, Kim
+                Psikoloji ile Dünya Danışmanlık ve Psikoloji Merkezi gibi çeşitli
+                kurumlarda staj süreçlerimi gerçekleştirdim.
               </p>
             </div>
           </div>

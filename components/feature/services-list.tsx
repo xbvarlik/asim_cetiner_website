@@ -9,7 +9,8 @@ export function ServicesList(): React.JSX.Element {
             Hizmetlerimiz
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg sm:leading-relaxed">
-            İhtiyaçlarınıza uygun, kanıta dayalı danışmanlık hizmetleri sunuyorum.
+            Aile, bireysel ve çift danışmanlığında bilimsel temelli destek
+            sunuyorum; aşağıda hizmet alanlarımın özetini görebilirsiniz.
           </p>
         </div>
 

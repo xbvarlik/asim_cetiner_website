@@ -1,29 +1,19 @@
 "use client";
 
-import {
-  Brain,
-  Heart,
-  Users,
-  Shield,
-  Sparkles,
-  MessageCircle,
-} from "lucide-react";
+import { Brain, Heart, Users } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { useLayoutEffect, useRef } from "react";
 
 import {
-  type ServiceId,
-  PUBLIC_SERVICES,
+  type ServicePillarId,
+  PUBLIC_SERVICE_PILLARS,
 } from "@/lib/content/services";
 
-const ICON_BY_SERVICE_ID: Record<ServiceId, LucideIcon> = {
+const ICON_BY_PILLAR_ID: Record<ServicePillarId, LucideIcon> = {
+  aile: Users,
   bireysel: Brain,
   cift: Heart,
-  aile: Users,
-  travma: Shield,
-  stres: Sparkles,
-  online: MessageCircle,
 };
 
 export function ServicesListCards(): React.JSX.Element {
@@ -70,18 +60,18 @@ export function ServicesListCards(): React.JSX.Element {
       ref={gridRef}
       className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
     >
-      {PUBLIC_SERVICES.map((service, index) => {
-        const Icon = ICON_BY_SERVICE_ID[service.id];
+      {PUBLIC_SERVICE_PILLARS.map((pillar, index) => {
+        const Icon = ICON_BY_PILLAR_ID[pillar.id];
         const card = (
           <div className="group flex h-full flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:shadow-lg focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2">
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
               <Icon className="h-6 w-6" />
             </div>
             <h3 className="mt-4 text-lg font-semibold text-card-foreground">
-              {service.title}
+              {pillar.title}
             </h3>
             <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
-              {service.shortDescription}
+              {pillar.shortDescription}
             </p>
           </div>
         );
@@ -89,7 +79,7 @@ export function ServicesListCards(): React.JSX.Element {
         if (reduceMotion) {
           return (
             <div
-              key={service.id}
+              key={pillar.id}
               className="h-full"
               data-service-card-wrap
             >
@@ -100,7 +90,7 @@ export function ServicesListCards(): React.JSX.Element {
 
         return (
           <motion.div
-            key={service.id}
+            key={pillar.id}
             className="h-full"
             data-service-card-wrap
             initial={{ opacity: 0, y: 28 }}

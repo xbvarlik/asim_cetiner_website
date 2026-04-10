@@ -2,10 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { ROUTES } from "@/lib/routes";
 
-export const DEFAULT_HERO_TITLE = "Profesyonel Psikolojik Danışmanlık";
+export const DEFAULT_HERO_TITLE =
+  "Klinik Psikolog İstanbul - Asım Çetiner | Kadıköy Psikolojik Danışmanlık";
 
 export const DEFAULT_HERO_SUBTITLE =
-  "Güvenli ve destekleyici bir ortamda, birlikte daha sağlıklı bir yaşam için adım atın. Uzman psikolog desteğiyle kendinizi keşfedin.";
+  "İstanbul’da arayışınızda, Kadıköy’deki özel klinimizde yüz yüze ve online danışmanlık seçenekleriyle yanınızdayım. Klinik Psikolog Asım Çetiner olarak; bireysel danışmanlık, aile danışmanlığı, çift danışmanlığı alanlarında bilimsel temelli destek sunuyorum.";
 
 type HeroProps = {
   title?: string;
