@@ -3,7 +3,11 @@ import { Phone, MapPin, Mail, Instagram } from "lucide-react";
 import { WhatsappGlyph } from "./whatsapp-glyph";
 import { ROUTES } from "@/lib/routes";
 import {
+  getSiteTelHref,
   getSiteWhatsappHref,
+  SITE_EMAIL,
+  SITE_INSTAGRAM_URL,
+  SITE_OFFICE_ADDRESS_SINGLE_LINE,
   SITE_PHONE_DISPLAY,
 } from "@/lib/site-contact";
 import type { NavItem } from "@/types";
@@ -59,15 +63,25 @@ export function Footer(): React.JSX.Element {
             <ul className="mt-4 flex flex-col gap-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0" />
-                <span>{SITE_PHONE_DISPLAY}</span>
+                <a
+                  href={getSiteTelHref()}
+                  className="transition-colors hover:text-primary focus-visible:rounded-md focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
+                >
+                  {SITE_PHONE_DISPLAY}
+                </a>
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0" />
-                <span>info@kenankubuc.com</span>
+                <a
+                  href={`mailto:${SITE_EMAIL}`}
+                  className="transition-colors hover:text-primary focus-visible:rounded-md focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
+                >
+                  {SITE_EMAIL}
+                </a>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
-                <span>123 Örnek Sokak, İstanbul, Türkiye</span>
+                <span className="text-pretty">{SITE_OFFICE_ADDRESS_SINGLE_LINE}</span>
               </li>
             </ul>
           </div>
@@ -78,7 +92,7 @@ export function Footer(): React.JSX.Element {
             </h4>
             <div className="mt-4 flex gap-3">
               <a
-                href="https://instagram.com"
+                href={SITE_INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"

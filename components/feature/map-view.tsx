@@ -1,6 +1,7 @@
 import { MapPin } from "lucide-react";
 
 import { RevealSection } from "@/components/feature/motion/reveal-section";
+import { SITE_OFFICE_ADDRESS_SINGLE_LINE } from "@/lib/site-contact";
 
 export function MapView(): React.JSX.Element {
   return (
@@ -21,11 +22,12 @@ export function MapView(): React.JSX.Element {
             <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
               <MapPin className="h-8 w-8" />
             </div>
-            <p className="text-lg font-medium text-foreground">
-              123 Örnek Sokak, İstanbul, Türkiye
+            <p className="text-pretty text-lg font-medium leading-relaxed text-foreground">
+              {SITE_OFFICE_ADDRESS_SINGLE_LINE}
             </p>
             <p className="text-sm text-muted-foreground">
-              Harita görünümü yakında eklenecektir.
+              Ayrıntılı yol tarifi için iletişim formundan veya telefon ile
+              iletebilirsiniz.
             </p>
           </div>
         </div>

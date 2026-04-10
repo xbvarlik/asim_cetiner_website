@@ -3,8 +3,10 @@ import { About } from "./about";
 import { ContactForm } from "./contact-form";
 import { FaqSection } from "./faq-section";
 import { Hero } from "./hero";
+import { HowItWorks } from "./how-it-works";
 import { MapView } from "./map-view";
 import { ServicesList } from "./services-list";
+import { TestimonialsSection } from "./testimonials-section";
 
 export type HomeTemplateProps = {
   heroTitle: string;
@@ -23,6 +25,8 @@ export function HomeTemplate({
       <About />
       {/* <AreasOfWork /> — unused for now; component file retained for possible reuse */}
       <ServicesList />
+      <HowItWorks />
+      <TestimonialsSection />
       <FaqSection />
       <ContactForm offices={offices} />
       <MapView />

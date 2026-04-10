@@ -145,3 +145,42 @@
     opacity: 1;
   }
 }
+
+/* Home testimonials: slow RTL infinite marquee (020-how-testimonials-home) */
+.testimonial-marquee-static {
+  display: none;
+}
+
+.testimonial-marquee-scroll {
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-marquee-static {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .testimonial-marquee-scroll {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes testimonial-marquee-rtl {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .testimonial-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: testimonial-marquee-rtl 75s linear infinite;
+  }
+}

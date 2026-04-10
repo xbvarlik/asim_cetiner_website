@@ -20,11 +20,12 @@ const lora = Lora({
 
 export const metadata: Metadata = {
   title: {
-    default: "Asım Çetiner | Psikolog",
+    default:
+      "Klinik Psikolog İstanbul - Asım Çetiner | Kadıköy Psikolojik Danışmanlık",
     template: "%s | Asım Çetiner",
   },
   description:
-    "Profesyonel psikolojik danışmanlık. Anksiyete, depresyon, travma ve ilişki sorunları için uzman psikolog desteği — İstanbul ve online seanslar.",
+    "Kadıköy’de yüz yüze ve online danışmanlık. Klinik Psikolog Asım Çetiner ile bireysel, aile ve çift danışmanlığında bilimsel temelli destek.",
 };
 
 export default function RootLayout({

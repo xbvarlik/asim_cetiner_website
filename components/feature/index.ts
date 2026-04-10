@@ -5,6 +5,8 @@ export { About } from "./about";
 export { AreasOfWork } from "./areas-of-work";
 export { ServicesList } from "./services-list";
 export { ServicesListDetailed } from "./services-list-detailed";
+export { HowItWorks } from "./how-it-works";
+export { TestimonialsSection } from "./testimonials-section";
 export { ContactForm } from "./contact-form";
 export { MapView } from "./map-view";
 export { Footer } from "./footer";

@@ -1,29 +1,19 @@
 "use client";
 
-import {
-  Brain,
-  Heart,
-  Users,
-  Shield,
-  Sparkles,
-  MessageCircle,
-} from "lucide-react";
+import { Brain, Heart, Users } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { useLayoutEffect, useRef } from "react";
 
 import {
-  type ServiceId,
-  PUBLIC_SERVICES,
+  type ServicePillarId,
+  PUBLIC_SERVICE_PILLARS,
 } from "@/lib/content/services";
 
-const ICON_BY_SERVICE_ID: Record<ServiceId, LucideIcon> = {
+const ICON_BY_PILLAR_ID: Record<ServicePillarId, LucideIcon> = {
+  aile: Users,
   bireysel: Brain,
   cift: Heart,
-  aile: Users,
-  travma: Shield,
-  stres: Sparkles,
-  online: MessageCircle,
 };
 
 export function ServicesListDetailedCards(): React.JSX.Element {
@@ -70,32 +60,41 @@ export function ServicesListDetailedCards(): React.JSX.Element {
       ref={gridRef}
       className="mt-16 grid gap-8 md:grid-cols-2"
     >
-      {PUBLIC_SERVICES.map((service, index) => {
-        const Icon = ICON_BY_SERVICE_ID[service.id];
+      {PUBLIC_SERVICE_PILLARS.map((pillar, index) => {
+        const Icon = ICON_BY_PILLAR_ID[pillar.id];
         const card = (
           <div className="group flex h-full flex-col rounded-3xl border border-border bg-card p-8 shadow-md transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-xl focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2">
             <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <Icon className="h-7 w-7" />
             </div>
             <h3 className="mt-5 text-xl font-semibold tracking-tight text-card-foreground sm:text-2xl">
-              {service.title}
+              {pillar.title}
             </h3>
-            <p className="mt-3 flex-1 text-base leading-relaxed text-muted-foreground">
-              {service.detailedDescription}
+            <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+              {pillar.intro}
             </p>
-            <ul className="mt-6 list-disc space-y-2 border-t border-border pt-6 pl-5 text-sm leading-relaxed text-card-foreground marker:text-primary">
-              {service.highlights.map((item) => (
-                <li key={item}>{item}</li>
+            <div className="mt-6 space-y-8 border-t border-border pt-6">
+              {pillar.sections.map((section) => (
+                <div key={section.heading}>
+                  <h4 className="text-sm font-semibold uppercase tracking-wide text-primary">
+                    {section.heading}
+                  </h4>
+                  <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-card-foreground marker:text-primary">
+                    {section.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         );
 
         if (reduceMotion) {
           return (
             <div
-              key={service.id}
-              className="h-full"
+              key={pillar.id}
+              className="h-full md:last:col-span-2"
               data-service-detailed-wrap
             >
               {card}
@@ -105,8 +104,8 @@ export function ServicesListDetailedCards(): React.JSX.Element {
 
         return (
           <motion.div
-            key={service.id}
-            className="h-full"
+            key={pillar.id}
+            className="h-full md:last:col-span-2"
             data-service-detailed-wrap
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -9,7 +9,7 @@ import { getContactFormOffices } from "@/lib/server/contact-page-data";
 export const metadata: Metadata = {
   title: "Ana Sayfa",
   description:
-    "Asım Çetiner — İstanbul merkezli psikolog. Bireysel danışmanlık, çift danışmanlığı ve online danışmanlık. Ana sayfadan tüm hizmetlere ve iletişim formuna ulaşın.",
+    "Kadıköy’de yüz yüze ve online danışmanlık. Klinik Psikolog Asım Çetiner ile bireysel, aile ve çift danışmanlığı. Hizmetler, sıkça sorulan sorular ve iletişim.",
 };
 
 export default async function HomePage(): Promise<React.JSX.Element> {
