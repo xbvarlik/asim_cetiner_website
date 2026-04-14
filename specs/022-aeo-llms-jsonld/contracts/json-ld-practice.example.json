@@ -1,0 +1,47 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://example.com/#localbusiness",
+      "name": "Klinik Psikolog İstanbul - Asım Çetiner",
+      "description": "Verilen hizmetler danışmanlık kapsamındadır, psikiyatrik müdahale bulunmamaktadır. [Authority text from approved copy: universities, programs.]",
+      "url": "https://example.com/",
+      "telephone": "+90-554-401-01-76",
+      "email": "pskasimcetiner@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Merdivenköy, Fahrettin Kerim Gökay Caddesi Çeviköz Apt No: 169 Kat: 2 Daire: 5",
+        "addressLocality": "Kadıköy",
+        "addressRegion": "İstanbul",
+        "postalCode": "34732",
+        "addressCountry": "TR"
+      },
+      "knowsAbout": [
+        "https://www.wikidata.org/entity/Q1147152",
+        "https://www.wikidata.org/entity/Q172195"
+      ],
+      "sameAs": [
+        "https://www.instagram.com/Klinikpsikologasimcetiner/",
+        "PLACEHOLDER_ACADEMIA_URL",
+        "PLACEHOLDER_RESEARCHGATE_URL"
+      ],
+      "employee": {
+        "@type": "Person",
+        "@id": "https://example.com/#person",
+        "name": "Asım Çetiner",
+        "jobTitle": "Uzman Psikolog",
+        "description": "Verilen hizmetler danışmanlık kapsamındadır, psikiyatrik müdahale bulunmamaktadır. [Authority text aligned with approved copy.]",
+        "knowsAbout": [
+          "https://www.wikidata.org/entity/Q1147152",
+          "https://www.wikidata.org/entity/Q172195"
+        ],
+        "sameAs": [
+          "https://www.instagram.com/Klinikpsikologasimcetiner/",
+          "PLACEHOLDER_ACADEMIA_URL",
+          "PLACEHOLDER_RESEARCHGATE_URL"
+        ]
+      }
+    }
+  ]
+}
