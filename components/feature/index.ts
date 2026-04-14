@@ -12,6 +12,7 @@ export { MapView } from "./map-view";
 export { Footer } from "./footer";
 export { MobileBottomContactBar } from "./mobile-bottom-contact-bar";
 export { SiteShell } from "./site-shell";
+export { PracticeJsonLd } from "./practice-json-ld";
 export { WhatsappGlyph } from "./whatsapp-glyph";
 export { TrafficTracker } from "./traffic-tracker";
 export { ShareModal } from "./share-modal";

@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { Footer } from "@/components/feature/footer";
 import { Header } from "@/components/feature/header";
 import { MobileBottomContactBar } from "@/components/feature/mobile-bottom-contact-bar";
+import { PracticeJsonLd } from "@/components/feature/practice-json-ld";
 import { TrafficTracker } from "@/components/feature/traffic-tracker";
 
 export function SiteShell({
@@ -12,6 +13,7 @@ export function SiteShell({
 }>): React.JSX.Element {
   return (
     <>
+      <PracticeJsonLd />
       <Suspense fallback={null}>
         <TrafficTracker />
       </Suspense>
