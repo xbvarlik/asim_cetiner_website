@@ -5,7 +5,7 @@ alwaysApply: true
 ---
 # kenan_kubuc_website Development Guidelines
 
-Auto-generated from all feature plans. Last updated: 2026-04-14
+Auto-generated from all feature plans. Last updated: 2026-05-01
 
 ## Active Technologies
 - TypeScript 5.x (Node.js 18+ LTS) + Next.js LTS (App Router), React 19+, Prisma ORM, Zod, Tailwind CSS, Shadcn/UI (001-backend-data-layer)
@@ -41,6 +41,8 @@ Auto-generated from all feature plans. Last updated: 2026-04-14
 - N/A (static content module) (021-horizontal-process-flow)
 - TypeScript 5.x (strict), Node 20+ + Next.js 16.2 (App Router), React 19.2, Zod 4.x (optional validation for JSON-LD object) (022-aeo-llms-jsonld)
 - N/A (static files + in-HTML JSON-LD; no Prisma changes) (022-aeo-llms-jsonld)
+- TypeScript 5.x (strict), Node 20+ + Next.js 16.2 (App Router), React 19.2, Tailwind CSS 4 (`@import "tailwindcss"` + `@theme` in `app/globals.css`), Shadcn/UI (`@base-ui`), Framer Motion 12 (existing client sections), lucide-react (023-customer-landing-updates)
+- N/A — marketing copy only; existing Prisma/lead submission unchanged aside from adjacent UI strings (023-customer-landing-updates)
 
 ## Project Structure
 
@@ -59,9 +61,9 @@ npm run dev; npm run lint
 TypeScript 5.x (strict): Follow standard conventions; Next.js / React patterns per constitution.
 
 ## Recent Changes
+- 023-customer-landing-updates: Added TypeScript 5.x (strict), Node 20+ + Next.js 16.2 (App Router), React 19.2, Tailwind CSS 4 (`@import "tailwindcss"` + `@theme` in `app/globals.css`), Shadcn/UI (`@base-ui`), Framer Motion 12 (existing client sections), lucide-react
 - 022-aeo-llms-jsonld: Added TypeScript 5.x (strict), Node 20+ + Next.js 16.2 (App Router), React 19.2, Zod 4.x (optional validation for JSON-LD object)
 - 021-horizontal-process-flow: Added TypeScript 5.x (strict), Node 20+ + Next.js 16.2 (App Router), React 19.2, Tailwind CSS 4 (`@import "tailwindcss"` + `@theme` in `app/globals.css`), Shadcn/UI (`@base-ui` primitives), Framer Motion 12 (existing `RevealSection` only)
-- 020-how-testimonials-home: Added TypeScript 5.x (strict) + Next.js 16.2 (App Router), React 19.2, Tailwind CSS 4, Shadcn/UI (`@base-ui`), Framer Motion 12 (existing section reveals), lucide-react
 
 
 <!-- MANUAL ADDITIONS START -->

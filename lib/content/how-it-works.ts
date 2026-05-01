@@ -1,5 +1,5 @@
 /**
- * Home “Süreç Nasıl İşliyor?” steps. Therapeutic process summary for prospective clients.
+ * Marketing “psychological counselling process” section — copy from stakeholder spec (023).
  */
 
 export type HowItWorksStep = {
@@ -8,35 +8,48 @@ export type HowItWorksStep = {
   description: string;
 };
 
+export const HOW_IT_WORKS_SECTION_TITLE =
+  "Psikolojik Danışmanlık Süreci Nasıl İşler?" as const;
+
+export const HOW_IT_WORKS_SECTION_INTRO =
+  "Bazen nereden başlayacağınızı bilemeyebilirsiniz. Psikolojik danışmanlık süreci, tam da bu noktada size eşlik eden güvenli bir alan sunar. Amaç, sadece konuşmak değil; kendinizi daha iyi anlamak ve yaşamınızda gerçek bir değişim oluşturmaktır." as const;
+
 export const HOW_IT_WORKS_STEPS: readonly HowItWorksStep[] = [
   {
     order: 1,
-    title: "İletişime geçin ve ön görüşme",
+    title: "İletişime Geçme ve Görüşme",
     description:
-      "Telefon, e-posta veya form üzerinden bana ulaşabilirsiniz. Kısa bir ön görüşmede ihtiyacınızı dinler, seans formatı (yüz yüze veya online) ve uygunluk hakkında bilgi veririm.",
+      "İlk adım, iletişime geçmenizdir. Kısa bir görüşmede süreç hakkında bilgi verilir ve aklınızdaki sorular netleşir. Bu aşama, psikolojik danışmanlığa başlamadan önce kendinizi daha rahat hissetmenizi sağlar.",
   },
   {
     order: 2,
-    title: "İlk seans: tanışma ve çerçeve",
+    title: "İlk Seans: Tanışma ve Değerlendirme",
     description:
-      "İlk görüşmede beklentilerinizi, hedeflerinizi ve yaşadığınız zorlukları birlikte ele alırız. Gizlilik, süre ve çalışma şekli netleştirilir; sorularınız yanıtlanır.",
+      "İlk seansta sizi anlamaya odaklanırım. Yaşadığınız zorlukları birlikte ele alır, beklentilerinizi netleştiririz. Bu görüşme, psikolojik danışmanlık sürecinin sizin için doğru bir zemin üzerine kurulmasını sağlar.",
   },
   {
     order: 3,
-    title: "Birlikte planlama",
+    title: "Danışmanlık Planı Oluşturma",
     description:
-      "Size uygun seans sıklığını (genellikle haftada bir) ve odak konularını birlikte belirleriz. Süreç boyunca ihtiyaçlarınıza göre plan esnetilebilir.",
+      "Her süreç kişiye özeldir. Sizin ihtiyaçlarınıza uygun bir danışmanlık planı birlikte belirlenir. Böylece süreç, size gerçekten iyi gelecek şekilde ilerler.",
   },
   {
     order: 4,
-    title: "Düzenli seanslar ve ilerleme",
+    title: "Düzenli Seanslar ve İlerleme",
     description:
-      "Seanslarda duygu ve düşünce örüntülerinizi güvenli bir ortamda çalışır; farkındalık ve başa çıkma becerilerinizi desteklerim. Her adımda kendi hızınıza saygı duyulur.",
+      "Seanslar ilerledikçe farkındalık artar. Tekrarlayan döngüler, duygular ve düşünceler daha net hale gelir. Bu süreçte, sizi zorlayan durumlarla daha sağlıklı baş etme yolları geliştirirsiniz. Psikolojik danışmanlık, kalıcı bir değişim hedefler.",
   },
   {
     order: 5,
-    title: "Değerlendirme ve sonlandırma",
+    title: "Değerlendirme ve Sonlandırma",
     description:
-      "Belirli aralıklarla ilerlemeyi gözden geçirir, hedeflerinize ulaştığınızda veya arayı açmak istediğinizde süreci birlikte anlamlı şekilde sonlandırırız.",
+      "Süreç düzenli olarak değerlendirilir. Kendinizi daha güçlü ve dengede hissettiğiniz noktada psikolojik danışmanlık planlı bir şekilde sonlandırılır. Amaç, süreç dışında da bu dengeyi sürdürebilmenizdir.",
   },
+] as const;
+
+export const HOW_IT_WORKS_CTA_HEADING = "Randevu Al" as const;
+
+export const HOW_IT_WORKS_CTA_LINES = [
+  "Eğer siz de bu sürece başlamak istiyorsanız, ilk adımı ertelemeyin.",
+  "Uygun gün ve saatler hakkında bilgi almak için benimle iletişime geçebilirsiniz.",
 ] as const;

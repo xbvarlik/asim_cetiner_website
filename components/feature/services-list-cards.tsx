@@ -2,6 +2,7 @@
 
 import { Brain, Heart, Users } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { useLayoutEffect, useRef } from "react";
 
@@ -9,12 +10,16 @@ import {
   type ServicePillarId,
   PUBLIC_SERVICE_PILLARS,
 } from "@/lib/content/services";
+import { ROUTES } from "@/lib/routes";
 
 const ICON_BY_PILLAR_ID: Record<ServicePillarId, LucideIcon> = {
   aile: Users,
   bireysel: Brain,
   cift: Heart,
 };
+
+const cardLinkClass =
+  "group block h-full rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
 export function ServicesListCards(): React.JSX.Element {
   const reduceMotion = useReducedMotion();
@@ -62,8 +67,9 @@ export function ServicesListCards(): React.JSX.Element {
     >
       {PUBLIC_SERVICE_PILLARS.map((pillar, index) => {
         const Icon = ICON_BY_PILLAR_ID[pillar.id];
-        const card = (
-          <div className="group flex h-full flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:shadow-lg focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2">
+        const href = `${ROUTES.services}#hizmet-${pillar.id}`;
+        const cardInner = (
+          <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition-[transform,box-shadow] duration-300 ease-out group-hover:-translate-y-1 group-hover:scale-[1.02] group-hover:shadow-lg group-focus-visible:border-ring">
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
               <Icon className="h-6 w-6" />
             </div>
@@ -83,7 +89,9 @@ export function ServicesListCards(): React.JSX.Element {
               className="h-full"
               data-service-card-wrap
             >
-              {card}
+              <Link href={href} className={cardLinkClass}>
+                {cardInner}
+              </Link>
             </div>
           );
         }
@@ -102,7 +110,9 @@ export function ServicesListCards(): React.JSX.Element {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            {card}
+            <Link href={href} className={cardLinkClass}>
+              {cardInner}
+            </Link>
           </motion.div>
         );
       })}

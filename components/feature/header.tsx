@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, Share2, X } from "lucide-react";
@@ -50,9 +51,22 @@ export function Header(): React.JSX.Element {
           <div className="flex min-w-0 shrink-0 justify-self-start">
             <Link
               href={homeHref}
-              className="min-w-0 shrink rounded-xl text-xl font-semibold tracking-tight text-primary transition-[color,filter] duration-300 hover:text-primary/90 hover:brightness-[0.98] focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none"
+              className="flex min-w-0 shrink items-center gap-px leading-none sm:gap-1 rounded-xl py-0.5 text-xl font-semibold tracking-tight text-header-nav-foreground transition-[color,filter] duration-300 hover:text-header-nav-foreground/90 hover:brightness-[0.98] focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none"
             >
-              Asım Çetiner
+              <span className="inline-flex shrink-0 items-center self-center leading-none">
+                <Image
+                  src="/images/asim-cetiner-logo-removebg-preview.png"
+                  alt=""
+                  width={144}
+                  height={144}
+                  className="block h-14 w-auto -translate-y-0.5 object-contain object-[50%_52%] sm:h-16 sm:-translate-y-1"
+                  sizes="(min-width: 640px) 4rem, 3.5rem"
+                  priority
+                />
+              </span>
+              <span className="leading-snug text-brand-name-accent">
+                Asım Çetiner
+              </span>
             </Link>
           </div>
 

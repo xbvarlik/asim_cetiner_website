@@ -23,3 +23,8 @@ export function getSiteWhatsappHref(): string {
 export function getSiteTelHref(): string {
   return `tel:+${SITE_PHONE_E164_DIGITS}`;
 }
+
+export function getSiteOfficeMapsSearchHref(): string {
+  const q = encodeURIComponent(SITE_OFFICE_ADDRESS_SINGLE_LINE);
+  return `https://www.google.com/maps/search/?api=1&query=${q}`;
+}

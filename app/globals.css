@@ -42,6 +42,7 @@
   --color-header-nav-foreground: var(--header-nav-foreground);
   --color-cta-whatsapp: var(--cta-whatsapp);
   --color-cta-phone: var(--cta-phone);
+  --color-brand-name-accent: var(--brand-name-accent);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -90,6 +91,8 @@
   --header-nav-foreground: oklch(0.36 0.09 55);
   --cta-whatsapp: #25d366;
   --cta-phone: #007aff;
+  /* Customer name accent #2F3E4E (023-customer-landing-updates) */
+  --brand-name-accent: #2f3e4e;
 }
 
 
