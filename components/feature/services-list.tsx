@@ -9,8 +9,9 @@ export function ServicesList(): React.JSX.Element {
             Hizmetlerimiz
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg sm:leading-relaxed">
-            Aile, bireysel ve çift danışmanlığında bilimsel temelli destek
-            sunuyorum; aşağıda hizmet alanlarımın özetini görebilirsiniz.
+            Aile, bireysel ve çift danışmanlığında online ve yüz yüze olarak
+            bilimsel temelli destek sunuyorum; aşağıda hizmet alanlarımın özetini
+            görebilirsiniz.
           </p>
         </div>
 

@@ -1,7 +1,13 @@
+import Link from "next/link";
 import { RevealSection } from "@/components/feature/motion/reveal-section";
-import { HOW_IT_WORKS_STEPS } from "@/lib/content/how-it-works";
-
-const STEP_COUNT = HOW_IT_WORKS_STEPS.length;
+import {
+  HOW_IT_WORKS_CTA_HEADING,
+  HOW_IT_WORKS_CTA_LINES,
+  HOW_IT_WORKS_SECTION_INTRO,
+  HOW_IT_WORKS_SECTION_TITLE,
+  HOW_IT_WORKS_STEPS,
+} from "@/lib/content/how-it-works";
+import { ROUTES } from "@/lib/routes";
 
 export function HowItWorks(): React.JSX.Element {
   return (
@@ -16,53 +22,55 @@ export function HowItWorks(): React.JSX.Element {
               id="how-it-works-heading"
               className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl"
             >
-              Süreç Nasıl İşliyor?
+              {HOW_IT_WORKS_SECTION_TITLE}
             </h2>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg sm:leading-relaxed">
-              Terapi sürecine dair adımları şeffaf ve sade bir çerçevede
-              özetledim; sorularınız için iletişime geçebilirsiniz.
+              {HOW_IT_WORKS_SECTION_INTRO}
             </p>
           </div>
 
-          <div
-            className="mt-14 -mx-4 snap-x snap-mandatory overflow-x-auto overflow-y-visible px-4 pb-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0"
-            role="region"
-            aria-labelledby="how-it-works-heading"
-            tabIndex={0}
-          >
-            <div className="relative mx-auto min-w-[52rem] lg:min-w-0 lg:w-full [--hiw-gap:1.25rem] sm:[--hiw-gap:1.5rem]">
-              <div
-                className="pointer-events-none absolute top-12 z-0 border-t border-dashed border-border"
-                style={{
-                  left: `calc((100% - ${STEP_COUNT - 1} * var(--hiw-gap)) / ${STEP_COUNT} / 2)`,
-                  right: `calc((100% - ${STEP_COUNT - 1} * var(--hiw-gap)) / ${STEP_COUNT} / 2)`,
-                }}
-                aria-hidden
-              />
-              <ol
-                className="relative z-[1] grid list-none gap-x-5 pt-6 sm:gap-x-6"
-                style={{
-                  gridTemplateColumns: `repeat(${STEP_COUNT}, minmax(0, 1fr))`,
-                }}
+          <ol className="mx-auto mt-14 max-w-3xl space-y-10 md:max-w-4xl">
+            {HOW_IT_WORKS_STEPS.map((step) => (
+              <li
+                key={step.order}
+                className="flex gap-5 sm:gap-6"
               >
-                {HOW_IT_WORKS_STEPS.map((step) => (
-                  <li
-                    key={step.order}
-                    className="flex snap-center flex-col items-center text-center"
-                  >
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground ring-2 ring-background">
-                      <span aria-hidden>{step.order}</span>
-                    </div>
-                    <h3 className="mt-6 max-w-[14rem] text-balance text-base font-semibold text-foreground sm:max-w-none sm:text-lg">
-                      {step.title}
-                    </h3>
-                    <p className="mt-2 max-w-[14rem] text-pretty text-sm leading-relaxed text-muted-foreground sm:max-w-none sm:text-base sm:leading-relaxed">
-                      {step.description}
-                    </p>
-                  </li>
-                ))}
-              </ol>
-            </div>
+                <div
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground ring-4 ring-background"
+                  aria-hidden
+                >
+                  {step.order}
+                </div>
+                <div className="min-w-0 pt-0.5">
+                  <h3 className="text-lg font-semibold text-foreground sm:text-xl">
+                    {step.title}
+                  </h3>
+                  <p className="mt-2 text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base sm:leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
+
+          <div className="mx-auto mt-20 max-w-xl rounded-2xl border border-border bg-card/60 px-6 py-8 text-center shadow-sm backdrop-blur-[2px] sm:mt-28 sm:px-10">
+            <p className="text-lg font-semibold text-foreground sm:text-xl">
+              {HOW_IT_WORKS_CTA_HEADING}
+            </p>
+            {HOW_IT_WORKS_CTA_LINES.map((line) => (
+              <p
+                key={line}
+                className="mt-3 text-pretty text-base leading-relaxed text-muted-foreground"
+              >
+                {line}
+              </p>
+            ))}
+            <Link
+              href={ROUTES.contact}
+              className="mt-6 inline-flex h-11 items-center justify-center rounded-xl bg-accent px-6 text-sm font-semibold text-accent-foreground shadow-sm transition-[filter,transform] hover:brightness-95 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none active:scale-[0.99]"
+            >
+              İletişime Geçin
+            </Link>
           </div>
         </div>
       </section>

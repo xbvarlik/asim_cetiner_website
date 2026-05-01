@@ -16,6 +16,8 @@ const ICON_BY_PILLAR_ID: Record<ServicePillarId, LucideIcon> = {
   cift: Heart,
 };
 
+const anchorWrapClass = "h-full md:last:col-span-2";
+
 export function ServicesListDetailedCards(): React.JSX.Element {
   const reduceMotion = useReducedMotion();
   const gridRef = useRef<HTMLDivElement>(null);
@@ -62,8 +64,12 @@ export function ServicesListDetailedCards(): React.JSX.Element {
     >
       {PUBLIC_SERVICE_PILLARS.map((pillar, index) => {
         const Icon = ICON_BY_PILLAR_ID[pillar.id];
+        const anchorId = `hizmet-${pillar.id}`;
         const card = (
-          <div className="group flex h-full flex-col rounded-3xl border border-border bg-card p-8 shadow-md transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-xl focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2">
+          <div
+            id={anchorId}
+            className="group flex h-full flex-col rounded-3xl border border-border bg-card p-8 shadow-md transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-xl focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 scroll-mt-28 lg:scroll-mt-32"
+          >
             <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <Icon className="h-7 w-7" />
             </div>
@@ -94,7 +100,7 @@ export function ServicesListDetailedCards(): React.JSX.Element {
           return (
             <div
               key={pillar.id}
-              className="h-full md:last:col-span-2"
+              className={anchorWrapClass}
               data-service-detailed-wrap
             >
               {card}
@@ -105,7 +111,7 @@ export function ServicesListDetailedCards(): React.JSX.Element {
         return (
           <motion.div
             key={pillar.id}
-            className="h-full md:last:col-span-2"
+            className={anchorWrapClass}
             data-service-detailed-wrap
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}

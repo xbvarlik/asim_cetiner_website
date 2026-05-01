@@ -13,6 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { ContactLeadCopy } from "@/components/feature/contact-lead-copy";
 import { RevealSection } from "@/components/feature/motion/reveal-section";
 import { createLeadAction } from "@/server/actions/lead-actions";
 import { readAttributionSource } from "@/lib/attribution-storage";
@@ -63,10 +64,7 @@ function ContactFormInner({ offices }: ContactFormProps): React.JSX.Element {
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             İletişime Geçin
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
-            Randevu almak veya bilgi edinmek için formu doldurun, en kısa sürede
-            size dönüş yapacağım.
-          </p>
+          <ContactLeadCopy />
         </div>
 
         <div className="mx-auto mt-12 max-w-xl">
@@ -234,9 +232,7 @@ function ContactFormFallback({
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             İletişime Geçin
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground text-sm">
-            Form yükleniyor…
-          </p>
+          <ContactLeadCopy />
         </div>
         <div className="mx-auto mt-12 max-w-xl text-center text-muted-foreground text-sm">
           {offices.length === 0 ? "Ofis bilgisi yok." : null}
