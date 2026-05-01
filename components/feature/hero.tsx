@@ -41,7 +41,7 @@ export function Hero({
   return (
     <section className="relative flex min-h-[72vh] items-center overflow-hidden sm:min-h-[78vh]">
       <Image
-        src="/images/hero-therapy-calm.jpg"
+        src="/images/asim-cetiner-bg-home.jpeg"
         alt=""
         fill
         priority
