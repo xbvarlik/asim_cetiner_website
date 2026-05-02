@@ -10,7 +10,10 @@ export const DEFAULT_HERO_SUBTITLE =
 
 const THERAPIST_NAME = "Asım Çetiner";
 
-function interleaveTherapistNameAccent(text: string): React.ReactNode {
+function interleaveTherapistNameAccent(
+  text: string,
+  useBrandAccent = true
+): React.ReactNode {
   if (!text.includes(THERAPIST_NAME)) {
     return text;
   }
@@ -20,7 +23,10 @@ function interleaveTherapistNameAccent(text: string): React.ReactNode {
     out.push(part);
     if (idx < parts.length - 1) {
       out.push(
-        <span key={`${idx}-${THERAPIST_NAME}`} className="text-brand-name-accent">
+        <span
+          key={`${idx}-${THERAPIST_NAME}`}
+          className={useBrandAccent ? "text-brand-name-accent" : undefined}
+        >
           {THERAPIST_NAME}
         </span>
       );
@@ -60,7 +66,7 @@ export function Hero({
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
         <div className="hero-intro-animate max-w-2xl text-left">
           <h1 className="text-3xl font-semibold leading-snug tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-            {interleaveTherapistNameAccent(title)}
+            {interleaveTherapistNameAccent(title, false)}
           </h1>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
             {interleaveTherapistNameAccent(subtitle)}

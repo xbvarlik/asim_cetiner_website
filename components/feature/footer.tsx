@@ -29,7 +29,8 @@ export function Footer(): React.JSX.Element {
           <div>
             <h3 className="text-lg font-semibold text-foreground">Asım Çetiner</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Profesyonel psikolojik danışmanlık hizmetleri.
+              Profesyonel psikolojik danışmanlık hizmetleri. Uygun gün ve saatler hakkında
+              bilgi almak için benimle iletişime geçebilirsiniz.
             </p>
             <Link
               href={ROUTES.contact}
