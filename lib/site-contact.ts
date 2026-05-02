@@ -6,6 +6,9 @@ export const SITE_PHONE_E164_DIGITS = "905544010176" as const;
 
 export const SITE_PHONE_DISPLAY = "+90 554 401 01 76" as const;
 
+/** No country code / spaces — keeps the contact page phone link on one line. */
+export const SITE_PHONE_DISPLAY_COMPACT = "5544010176" as const;
+
 export const SITE_EMAIL = "pskasimcetiner@gmail.com" as const;
 
 export const SITE_INSTAGRAM_HANDLE = "Klinikpsikologasimcetiner" as const;
