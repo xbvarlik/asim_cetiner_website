@@ -26,7 +26,7 @@ export function BlogCard({ post }: BlogCardProps): React.JSX.Element {
         {preview}
       </p>
       <Link
-        href={getBlogPostPath(post.id)}
+        href={getBlogPostPath(post.slug)}
         className="mt-4 inline-flex rounded-md text-sm font-medium text-primary underline-offset-4 transition-colors hover:underline focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
       >
         Devamını oku

@@ -5,6 +5,8 @@ export const ROUTES = {
   contact: "/iletisim",
   faq: "/sikca-sorulan-sorular",
   blog: "/blog",
+  kvkk: "/kvkk-aydinlatma-metni",
+  gizlilik: "/gizlilik-sozlesmesi",
   seoIstanbulPsikolog: "/istanbul-psikolog",
   seoCiftTerapisi: "/cift-terapisi",
   seoBilisselDavranisciTerapi: "/bilissel-davranisci-terapi",
@@ -47,6 +49,11 @@ export function getHomeLink(pathname: string): string {
 }
 
 /** Public detail URL for a blog post; keep path construction centralized (constitution). */
-export function getBlogPostPath(id: number): string {
+export function getBlogPostPath(slug: string): string {
+  return `${ROUTES.blog}/${slug}`;
+}
+
+/** @deprecated Use getBlogPostPath with slug instead */
+export function getBlogPostPathById(id: number): string {
   return `${ROUTES.blog}/${id}`;
 }
