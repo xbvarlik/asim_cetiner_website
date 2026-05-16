@@ -26,7 +26,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { RichTextEditor } from "@/components/feature/rich-text-editor";
 import {
   createBlogPostAction,
   updateBlogPostAction,
@@ -59,6 +59,7 @@ export function AdminBlogTable({
   const [modalOpen, setModalOpen] = useState(false);
   const [editing, setEditing] = useState<BlogRowDto | null>(null);
   const [expandedIds, setExpandedIds] = useState<Set<number>>(() => new Set());
+  const [content, setContent] = useState<string>("");
 
   function toggleExpand(id: number): void {
     setExpandedIds((prev) => {
@@ -80,6 +81,7 @@ export function AdminBlogTable({
   };
 
   function submitCreateOrUpdate(formData: FormData): void {
+    formData.set("content", content);
     startTransition(async () => {
       const action = editing ? updateBlogPostAction : createBlogPostAction;
       if (editing) {
@@ -90,6 +92,7 @@ export function AdminBlogTable({
         toast.success(result.message ?? "Kaydedildi");
         setModalOpen(false);
         setEditing(null);
+        setContent("");
         router.refresh();
       } else {
         toast.error(result.error);
@@ -124,6 +127,7 @@ export function AdminBlogTable({
           size="sm"
           onClick={() => {
             setEditing(null);
+            setContent("");
             setModalOpen(true);
           }}
         >
@@ -176,6 +180,7 @@ export function AdminBlogTable({
                     className="w-full sm:w-auto"
                     onClick={() => {
                       setEditing(row);
+                      setContent(row.content);
                       setModalOpen(true);
                     }}
                   >
@@ -287,6 +292,7 @@ export function AdminBlogTable({
                     size="xs"
                     onClick={() => {
                       setEditing(row);
+                      setContent(row.content);
                       setModalOpen(true);
                     }}
                   >
@@ -318,14 +324,14 @@ export function AdminBlogTable({
       />
 
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent className="max-h-[90vh] w-[calc(100vw-2rem)] max-w-lg overflow-y-auto sm:w-full">
-          <DialogHeader>
+        <DialogContent className="max-h-[90vh] w-[calc(100vw-2rem)] max-w-4xl gap-5 overflow-y-auto p-5 pb-7 sm:w-full sm:p-6 sm:pb-8">
+          <DialogHeader className="space-y-1">
             <DialogTitle>
               {editing ? "Yazıyı düzenle" : "Yeni yazı"}
             </DialogTitle>
           </DialogHeader>
           <form
-            className="flex flex-col gap-3"
+            className="flex flex-col gap-4"
             onSubmit={(e) => {
               e.preventDefault();
               const fd = new FormData(e.currentTarget);
@@ -344,13 +350,11 @@ export function AdminBlogTable({
             </div>
             <div className="space-y-1">
               <Label htmlFor="blog-content">İçerik</Label>
-              <Textarea
-                id="blog-content"
-                name="content"
-                required
-                rows={8}
-                defaultValue={editing?.content ?? ""}
+              <RichTextEditor
+                content={content}
+                onChange={setContent}
                 disabled={pending}
+                placeholder="Blog içeriğini buraya yazın..."
               />
             </div>
             <div className="space-y-1">
@@ -366,7 +370,7 @@ export function AdminBlogTable({
                 <option value="false">Taslak</option>
               </select>
             </div>
-            <DialogFooter className="flex flex-row justify-end gap-2 border-0 bg-transparent p-0">
+            <DialogFooter className="mx-0 mb-0 mt-2 flex flex-row justify-end gap-3 border-0 bg-transparent px-0 pt-5 sm:pt-6">
               <Button
                 type="button"
                 variant="outline"

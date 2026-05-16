@@ -13,7 +13,7 @@ export type BlogPostType = BlogPost;
 /** Serializable fields passed from Server Components to public blog feature UI. */
 export type PublicBlogPost = Pick<
   BlogPostType,
-  "id" | "title" | "content" | "createdAt"
+  "id" | "title" | "slug" | "content" | "createdAt"
 >;
 
 export type PaginationParams = {
