@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
 import { Geist, Geist_Mono, Lora } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
+import { rootSiteMetadata } from "@/lib/seo/site-metadata";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -18,15 +18,7 @@ const lora = Lora({
   subsets: ["latin", "latin-ext"],
 });
 
-export const metadata: Metadata = {
-  title: {
-    default:
-      "Klinik Psikolog İstanbul - Asım Çetiner | Kadıköy Psikolojik Danışmanlık",
-    template: "%s | Asım Çetiner",
-  },
-  description:
-    "Kadıköy’de yüz yüze ve online danışmanlık. Klinik Psikolog Asım Çetiner ile bireysel, aile ve çift danışmanlığında bilimsel temelli destek.",
-};
+export const metadata = rootSiteMetadata;
 
 export default function RootLayout({
   children,

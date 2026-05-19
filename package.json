@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "generate:brand-assets": "node scripts/generate-brand-assets.mjs",
     "postinstall": "prisma generate"
   },
   "dependencies": {
@@ -52,7 +53,9 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.0",
+    "png-to-ico": "^2.1.8",
     "prisma": "^7.5.0",
+    "sharp": "^0.34.2",
     "tailwindcss": "^4",
     "tsx": "^4.21.0",
     "typescript": "^5"

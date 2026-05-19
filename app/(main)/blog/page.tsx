@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
-
 import { RevealSection } from "@/components/feature/motion/reveal-section";
 import { BlogList } from "@/components/feature/blog-list";
+import { ROUTES } from "@/lib/routes";
+import { buildPageMetadata } from "@/lib/seo/site-metadata";
 import { listPublishedForPublic } from "@/server/services/blog-service";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Blog",
   description:
     "Psikoloji, ruh sağlığı ve danışmanlık üzerine yazılar ve güncel içerikler.",
-};
+  pathname: ROUTES.blog,
+});
 
 export default async function BlogPage(): Promise<React.JSX.Element> {
   const result = await listPublishedForPublic();

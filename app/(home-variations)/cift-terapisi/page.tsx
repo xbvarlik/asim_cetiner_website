@@ -1,10 +1,10 @@
 import { HomeTemplate } from "@/components/feature/home-template";
-import { SEO_LANDING_PAGES } from "@/lib/seo/landing-pages";
+import { getSeoLandingMetadata, SEO_LANDING_PAGES } from "@/lib/seo/landing-pages";
 import { getContactFormOffices } from "@/lib/server/contact-page-data";
 
 const slug = "cift-terapisi" as const;
 
-export const metadata = SEO_LANDING_PAGES[slug].metadata;
+export const metadata = getSeoLandingMetadata(slug);
 
 export default async function CiftTerapisiPage(): Promise<React.JSX.Element> {
   const config = SEO_LANDING_PAGES[slug];

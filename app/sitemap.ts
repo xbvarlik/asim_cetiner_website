@@ -1,8 +1,18 @@
 import { MetadataRoute } from "next";
 import { ROUTES, SEO_LANDING_PATHS } from "@/lib/routes";
+import { DEFAULT_PRODUCTION_ORIGIN } from "@/lib/seo/site-metadata";
+import { getSiteOrigin } from "@/lib/seo/site-origin";
 import * as blogService from "@/server/services/blog-service";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://www.asimcetiner.com";
+function getSitemapBaseUrl(): string {
+  const origin = getSiteOrigin();
+  if (origin === "http://localhost:3000") {
+    return DEFAULT_PRODUCTION_ORIGIN;
+  }
+  return origin;
+}
+
+const BASE_URL = getSitemapBaseUrl();
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();

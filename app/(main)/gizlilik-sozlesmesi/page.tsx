@@ -6,12 +6,14 @@ import { RevealSection } from "@/components/feature/motion/reveal-section";
 import { stripUnsafeBlogHtml } from "@/lib/blog-public-html";
 import * as legalDocService from "@/server/services/legal-document-service";
 import { ROUTES } from "@/lib/routes";
+import { buildPageMetadata } from "@/lib/seo/site-metadata";
 import { cn } from "@/lib/utils";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Gizlilik Sözleşmesi",
   description: "Web sitesi kullanım koşulları ve gizlilik politikası.",
-};
+  pathname: ROUTES.gizlilik,
+});
 
 export default async function GizlilikPage(): Promise<React.JSX.Element> {
   const result = await legalDocService.getById("gizlilik");

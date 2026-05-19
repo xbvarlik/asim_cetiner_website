@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 
+import { ROUTES } from "@/lib/routes";
+import { buildPageMetadata } from "@/lib/seo/site-metadata";
+
 export type SeoLandingSlug =
   | "istanbul-psikolog"
   | "cift-terapisi"
@@ -65,3 +68,19 @@ export const SEO_LANDING_PAGES: Record<SeoLandingSlug, SeoLandingConfig> = {
       "Yoğun tempolu yaşamda dengeyi bulmanıza yardımcı olacak bireysel danışmanlık hizmetleri sunuyorum.",
   },
 };
+
+const SEO_LANDING_PATH_BY_SLUG: Record<SeoLandingSlug, string> = {
+  "istanbul-psikolog": ROUTES.seoIstanbulPsikolog,
+  "cift-terapisi": ROUTES.seoCiftTerapisi,
+  "bilissel-davranisci-terapi": ROUTES.seoBilisselDavranisciTerapi,
+  "uskudar-psikolog": ROUTES.seoUskudarPsikolog,
+  "besiktas-psikolog": ROUTES.seoBesiktasPsikolog,
+};
+
+export function getSeoLandingMetadata(slug: SeoLandingSlug): Metadata {
+  const { metadata } = SEO_LANDING_PAGES[slug];
+  return {
+    ...metadata,
+    ...buildPageMetadata({ pathname: SEO_LANDING_PATH_BY_SLUG[slug] }),
+  };
+}

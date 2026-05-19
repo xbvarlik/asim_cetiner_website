@@ -1,11 +1,14 @@
-import type { Metadata } from "next";
-
 import { FaqSection } from "@/components/feature/faq-section";
+import { ROUTES } from "@/lib/routes";
+import { buildPageMetadata } from "@/lib/seo/site-metadata";
 
-export const metadata: Metadata = {
+export const metadata = {
   title: { absolute: "Sıkça Sorulan Sorular | Asım Çetiner" },
-  description:
-    "Danışmanlık süreci, seanslar, gizlilik ve online görüşmeler hakkında sık sorulan sorular ve yanıtları.",
+  ...buildPageMetadata({
+    description:
+      "Danışmanlık süreci, seanslar, gizlilik ve online görüşmeler hakkında sık sorulan sorular ve yanıtları.",
+    pathname: ROUTES.faq,
+  }),
 };
 
 export default function FaqPage(): React.JSX.Element {

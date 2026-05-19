@@ -1,0 +1,22 @@
+{
+  "name": "Klinik Psikolog Asım Çetiner",
+  "short_name": "Asım Çetiner",
+  "description": "Kadıköy'de yüz yüze ve online psikolojik danışmanlık — Asım Çetiner.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf8f5",
+  "theme_color": "#783b04",
+  "lang": "tr",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

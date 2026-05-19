@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 
 import { BlogContent } from "@/components/feature/blog-content";
 import { htmlToPlainText } from "@/lib/blog-public-html";
+import { ROUTES } from "@/lib/routes";
+import { buildPageMetadata } from "@/lib/seo/site-metadata";
 import { getPublishedBySlug } from "@/server/services/blog-service";
 
 type PageProps = {
@@ -28,10 +30,12 @@ export async function generateMetadata({
   const description =
     plain.length > 0 ? plain.slice(0, 155) : post.title;
 
-  return {
+  return buildPageMetadata({
     title: post.title,
     description,
-  };
+    pathname: `${ROUTES.blog}/${slug}`,
+    openGraphType: "article",
+  });
 }
 
 export default async function BlogPostPage({
