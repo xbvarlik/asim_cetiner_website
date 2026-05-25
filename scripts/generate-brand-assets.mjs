@@ -25,48 +25,60 @@ async function writePng(buffer, filename) {
   await writeFile(path.join(publicDir, filename), buffer);
 }
 
+/** Logo centered on a white circle — readable at favicon and SERP sizes. */
+async function iconOnWhiteCircle(size, logoScale = 0.72) {
+  const circleSvg = `<svg width="${size}" height="${size}" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="${size / 2}" cy="${size / 2}" r="${size / 2}" fill="#ffffff"/>
+</svg>`;
+
+  const logoMax = Math.max(1, Math.round(size * logoScale));
+  const logoBuffer = await sharp(logoPath)
+    .ensureAlpha()
+    .resize(logoMax, logoMax, {
+      fit: "contain",
+      background: { r: 0, g: 0, b: 0, alpha: 0 },
+    })
+    .png()
+    .toBuffer();
+
+  const { width: logoW = logoMax, height: logoH = logoMax } =
+    await sharp(logoBuffer).metadata();
+
+  return sharp(Buffer.from(circleSvg))
+    .resize(size, size)
+    .composite([
+      {
+        input: logoBuffer,
+        left: Math.round((size - logoW) / 2),
+        top: Math.round((size - logoH) / 2),
+      },
+    ])
+    .png()
+    .toBuffer();
+}
+
 async function main() {
   await mkdir(publicDir, { recursive: true });
 
   const logo = sharp(logoPath).ensureAlpha();
   const logoMeta = await logo.metadata();
 
-  const favicon32 = await logo
-    .clone()
-    .resize(32, 32, { fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 0 } })
-    .png()
-    .toBuffer();
-  const favicon16 = await logo
-    .clone()
-    .resize(16, 16, { fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 0 } })
-    .png()
-    .toBuffer();
+  const favicon32 = await iconOnWhiteCircle(32);
+  const favicon16 = await iconOnWhiteCircle(16);
 
   await writePng(favicon32, "favicon-32x32.png");
   await writePng(favicon16, "favicon-16x16.png");
 
   const ico = await pngToIco([favicon16, favicon32]);
-  await writeFile(path.join(publicDir, "favicon.ico"), ico);
+  const faviconIcoPath = path.join(publicDir, "favicon.ico");
+  await writeFile(faviconIcoPath, ico);
+  await writeFile(path.join(root, "app", "favicon.ico"), ico);
 
-  const appleTouch = await logo
-    .clone()
-    .resize(180, 180, {
-      fit: "contain",
-      background: { r: 250, g: 248, b: 245, alpha: 1 },
-    })
-    .png()
-    .toBuffer();
+  const appleTouch = await iconOnWhiteCircle(180);
   await writePng(appleTouch, "apple-touch-icon.png");
 
   for (const size of [192, 512]) {
-    const icon = await logo
-      .clone()
-      .resize(size, size, {
-        fit: "contain",
-        background: { r: 250, g: 248, b: 245, alpha: 1 },
-      })
-      .png()
-      .toBuffer();
+    const icon = await iconOnWhiteCircle(size);
     await writePng(icon, `android-chrome-${size}x${size}.png`);
   }
 
@@ -150,7 +162,7 @@ async function main() {
     "utf8",
   );
 
-  console.log("Brand assets written to public/");
+  console.log("Brand assets written to public/ and app/favicon.ico");
   console.log(`Logo source: ${logoPath} (${logoMeta.width}x${logoMeta.height})`);
 }
 
