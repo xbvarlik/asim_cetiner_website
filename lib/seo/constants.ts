@@ -18,7 +18,7 @@ export const PRACTITIONER_FULL_NAME = "Asım Çetiner" as const;
 
 /** Public display name for LocalBusiness (aligned with app/layout metadata). */
 export const PRACTICE_BUSINESS_NAME =
-  "Klinik Psikolog İstanbul - Asım Çetiner | Kadıköy Psikolojik Danışmanlık" as const;
+  "Klinik Psikolog Asım Çetiner | Kadıköy Psikolog & Online Terapi" as const;
 
 /** Placeholder tokens for deferred academic profiles (replace in code when URLs exist). */
 export const PLACEHOLDER_ACADEMIA_URL = "PLACEHOLDER_ACADEMIA_URL" as const;
