@@ -5,7 +5,7 @@ import { z } from "zod";
 import * as blogService from "@/server/services/blog-service";
 import { getAdminSessionFromCookies } from "@/lib/server/admin-session";
 import {
-  createBlogPostSchema,
+  createBlogPostInputSchema,
   updateBlogPostSchema,
 } from "@/lib/validations/blog-validation";
 import type { AdminActionResult } from "@/types";
@@ -38,7 +38,7 @@ export async function createBlogPostAction(
     content: formData.get("content"),
     isActive: parseBool(formData.get("isActive")) ?? true,
   };
-  const parsed = createBlogPostSchema.safeParse(raw);
+  const parsed = createBlogPostInputSchema.safeParse(raw);
   if (!parsed.success) {
     return {
       success: false,
