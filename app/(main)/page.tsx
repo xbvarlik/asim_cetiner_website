@@ -4,12 +4,13 @@ import {
 } from "@/components/feature/hero";
 import { HomeTemplate } from "@/components/feature/home-template";
 import { getContactFormOffices } from "@/lib/server/contact-page-data";
-import { buildPageMetadata } from "@/lib/seo/site-metadata";
+import {
+  SITE_DEFAULT_DESCRIPTION,
+  buildPageMetadata,
+} from "@/lib/seo/site-metadata";
 
 export const metadata = buildPageMetadata({
-  title: "Ana Sayfa",
-  description:
-    "Kadıköy'de yüz yüze ve online danışmanlık. Klinik Psikolog Asım Çetiner ile bireysel, aile ve çift danışmanlığı. Hizmetler, sıkça sorulan sorular ve iletişim.",
+  description: SITE_DEFAULT_DESCRIPTION,
   pathname: "/",
 });
 

@@ -8,12 +8,12 @@ export const DEFAULT_PRODUCTION_ORIGIN = "https://www.asimcetiner.com" as const;
 export const SITE_NAME = "Asım Çetiner" as const;
 
 export const SITE_DEFAULT_TITLE =
-  "Klinik Psikolog İstanbul - Asım Çetiner | Kadıköy Psikolojik Danışmanlık" as const;
+  "Klinik Psikolog Asım Çetiner | Kadıköy Psikolog & Online Terapi" as const;
 
 export const SITE_TITLE_TEMPLATE = "%s | Asım Çetiner" as const;
 
 export const SITE_DEFAULT_DESCRIPTION =
-  "Kadıköy'de yüz yüze ve online danışmanlık. Klinik Psikolog Asım Çetiner ile bireysel, aile ve çift danışmanlığında bilimsel temelli destek." as const;
+  "Anksiyete, panik atak, depresyon, stres yönetimi, ilişki sorunları ve yetişkin terapisi alanlarında psikoterapi hizmeti." as const;
 
 export const SITE_LOCALE = "tr_TR" as const;
 
