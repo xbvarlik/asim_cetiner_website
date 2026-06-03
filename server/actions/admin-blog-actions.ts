@@ -4,12 +4,9 @@ import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import * as blogService from "@/server/services/blog-service";
 import { getAdminSessionFromCookies } from "@/lib/server/admin-session";
-import {
-  createBlogPostInputSchema,
-  updateBlogPostSchema,
-} from "@/lib/validations/blog-validation";
+import { createBlogPostInputSchema } from "@/lib/validations/blog-validation";
 import type { AdminActionResult } from "@/types";
-import { ROUTES } from "@/lib/routes";
+import { ROUTES, getBlogPostPath } from "@/lib/routes";
 
 const idSchema = z.coerce.number().int().positive();
 
@@ -25,6 +22,17 @@ function parseBool(v: FormDataEntryValue | null): boolean | undefined {
   return v === "true" || v === "on" || v === "1";
 }
 
+function revalidatePublicBlogPaths(slug?: string, previousSlug?: string): void {
+  revalidatePath(ROUTES.blog);
+  revalidatePath("/sitemap.xml");
+  if (previousSlug && previousSlug !== slug) {
+    revalidatePath(getBlogPostPath(previousSlug));
+  }
+  if (slug) {
+    revalidatePath(getBlogPostPath(slug));
+  }
+}
+
 export async function createBlogPostAction(
   _prev: AdminActionResult | undefined,
   formData: FormData
@@ -33,12 +41,11 @@ export async function createBlogPostAction(
     return { success: false, error: "Yetkisiz" };
   }
 
-  const raw = {
+  const parsed = createBlogPostInputSchema.safeParse({
     title: formData.get("title"),
     content: formData.get("content"),
     isActive: parseBool(formData.get("isActive")) ?? true,
-  };
-  const parsed = createBlogPostInputSchema.safeParse(raw);
+  });
   if (!parsed.success) {
     return {
       success: false,
@@ -51,6 +58,7 @@ export async function createBlogPostAction(
     return { success: false, error: result.error };
   }
   revalidatePath(ROUTES.admin.blog);
+  revalidatePublicBlogPaths(result.data.slug);
   return { success: true, message: "Yazı oluşturuldu" };
 }
 
@@ -67,6 +75,10 @@ export async function updateBlogPostAction(
     return { success: false, error: "Geçersiz yazı" };
   }
 
+  const existing = await blogService.getById(idParsed.data);
+  const previousSlug =
+    existing.success && existing.data ? existing.data.slug : undefined;
+
   const raw: Record<string, unknown> = {
     title: formData.get("title"),
     content: formData.get("content"),
@@ -76,7 +88,7 @@ export async function updateBlogPostAction(
     raw.isActive = parseBool(activeRaw) ?? false;
   }
 
-  const parsed = updateBlogPostSchema.safeParse(raw);
+  const parsed = createBlogPostInputSchema.partial().safeParse(raw);
   if (!parsed.success) {
     return {
       success: false,
@@ -89,6 +101,7 @@ export async function updateBlogPostAction(
     return { success: false, error: result.error };
   }
   revalidatePath(ROUTES.admin.blog);
+  revalidatePublicBlogPaths(result.data.slug, previousSlug);
   return { success: true, message: "Yazı güncellendi" };
 }
 
@@ -105,10 +118,15 @@ export async function deleteBlogPostAction(
     return { success: false, error: "Geçersiz yazı" };
   }
 
+  const existing = await blogService.getById(idParsed.data);
+  const slug =
+    existing.success && existing.data ? existing.data.slug : undefined;
+
   const result = await blogService.remove(idParsed.data);
   if (!result.success) {
     return { success: false, error: result.error };
   }
   revalidatePath(ROUTES.admin.blog);
+  revalidatePublicBlogPaths(slug);
   return { success: true, message: "Yazı silindi" };
 }

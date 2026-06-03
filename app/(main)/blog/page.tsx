@@ -4,6 +4,9 @@ import { ROUTES } from "@/lib/routes";
 import { buildPageMetadata } from "@/lib/seo/site-metadata";
 import { listPublishedForPublic } from "@/server/services/blog-service";
 
+/** CMS-driven list; must not freeze at build time when posts are published later. */
+export const dynamic = "force-dynamic";
+
 export const metadata = buildPageMetadata({
   title: "Blog",
   description:

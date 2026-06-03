@@ -54,6 +54,25 @@ export async function getPublishedBySlug(
   }
 }
 
+/** Resolves a public blog URL segment (slug or legacy numeric id). */
+export async function getPublishedBySlugOrLegacyId(
+  param: string
+): Promise<ServiceResult<BlogPostType | null>> {
+  const bySlug = await getPublishedBySlug(param);
+  if (!bySlug.success) {
+    return bySlug;
+  }
+  if (bySlug.data) {
+    return bySlug;
+  }
+
+  if (/^\d+$/.test(param)) {
+    return getPublishedById(Number(param));
+  }
+
+  return { success: true, data: null };
+}
+
 export async function getAll(
   params: PaginationParams
 ): Promise<ServiceResult<PaginatedResult<BlogPostType>>> {
